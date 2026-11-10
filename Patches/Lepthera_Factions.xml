@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- xenotypeChances are absolute chances; whatever is left of 1.0 goes to Baseliner. Each op
+       merges into an existing xenotypeChances if another mod already made one, otherwise builds it.
+       Factionless pawns need nothing: XenotypeDef.factionlessGenerationWeight defaults to 1, so every
+       Lepthera xenotype is already in that pool. -->
+
+  <!-- Wild men ("wild man wanders in"): about 6% Lepthera with the always-loaded three. Lunaveth and
+       Mycoth add theirs from Mods/GenesAndMore and Mods/AlphaGenes. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+      <value>
+        <Lepthera_Aurelith>0.02</Lepthera_Aurelith>
+        <Lepthera_Noctyra>0.02</Lepthera_Noctyra>
+        <Lepthera_Cindrathi>0.02</Lepthera_Cindrathi>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/PawnKindDef[defName="WildMan"]</xpath>
+      <value>
+        <xenotypeSet Inherit="True">
+          <xenotypeChances>
+            <Lepthera_Aurelith>0.02</Lepthera_Aurelith>
+            <Lepthera_Noctyra>0.02</Lepthera_Noctyra>
+            <Lepthera_Cindrathi>0.02</Lepthera_Cindrathi>
+          </xenotypeChances>
+        </xenotypeSet>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Shattered Empire (Royalty): a few Aurelith nobles. Vanilla already lists Hussar, Genie etc. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="Empire"]</xpath>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/FactionDef[defName="Empire"]/xenotypeSet/xenotypeChances</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Empire"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+          <Lepthera_Aurelith>0.02</Lepthera_Aurelith>
+        </value>
+      </match>
+      <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Empire"]</xpath>
+        <value>
+          <xenotypeSet>
+            <xenotypeChances>
+              <Lepthera_Aurelith>0.02</Lepthera_Aurelith>
+            </xenotypeChances>
+          </xenotypeSet>
+        </value>
+      </nomatch>
+    </match>
+  </Operation>
+
+  <!-- Medieval Overhaul: House Ignivar (BigT.HouseIgnivar), the faction and its exiles. Keyed on the
+       FactionDef existing, so it does nothing without the mod. "House Ignivar patches" (Lucius) adds a
+       plain xenotypeSet with Impid; About loadAfter puts us after it so we merge into that one.
+       Faction ops check the FactionDef exists first, so a missing DLC or mod is a silent no-op. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="Ignivar_Faction"]</xpath>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/FactionDef[defName="Ignivar_Faction"]/xenotypeSet/xenotypeChances</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Ignivar_Faction"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+          <Lepthera_Cindrathi>0.05</Lepthera_Cindrathi>
+        </value>
+      </match>
+      <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Ignivar_Faction"]</xpath>
+        <value>
+          <xenotypeSet>
+            <xenotypeChances>
+              <Lepthera_Cindrathi>0.05</Lepthera_Cindrathi>
+            </xenotypeChances>
+          </xenotypeSet>
+        </value>
+      </nomatch>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="Ignivar_Exiles"]</xpath>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/FactionDef[defName="Ignivar_Exiles"]/xenotypeSet/xenotypeChances</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Ignivar_Exiles"]/xenotypeSet/xenotypeChances</xpath>
+        <value>
+          <Lepthera_Cindrathi>0.05</Lepthera_Cindrathi>
+        </value>
+      </match>
+      <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/FactionDef[defName="Ignivar_Exiles"]</xpath>
+        <value>
+          <xenotypeSet>
+            <xenotypeChances>
+              <Lepthera_Cindrathi>0.05</Lepthera_Cindrathi>
+            </xenotypeChances>
+          </xenotypeSet>
+        </value>
+      </nomatch>
+    </match>
+  </Operation>
+
+</Patch>

@@ -43,6 +43,9 @@
     <li>sarg.alphagenes</li>
     <li>vanillaracesexpanded.insector</li>
     <li>sinner.softerhaircolors</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>BigT.HouseIgnivar</li>
+    <li>lucius.ignivarpatches</li>
   </loadAfter>
   <description>Lepthera moth race for Big and Small, built on Oops all BUGPARTS.</description>
 </ModMetaData>

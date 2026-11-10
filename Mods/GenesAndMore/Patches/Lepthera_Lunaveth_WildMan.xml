@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Wild men: Lunaveth only exist with this folder's mod, so their wild-man chance lives here.
+       Same merge-or-create shape as Patches/Lepthera_Factions.xml. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+      <value>
+        <Lepthera_Lunaveth>0.01</Lepthera_Lunaveth>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/PawnKindDef[defName="WildMan"]</xpath>
+      <value>
+        <xenotypeSet Inherit="True">
+          <xenotypeChances>
+            <Lepthera_Lunaveth>0.01</Lepthera_Lunaveth>
+          </xenotypeChances>
+        </xenotypeSet>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>
