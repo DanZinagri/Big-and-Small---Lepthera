@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Atavism Libraries (DanZinagri.AtavismLibraries) integration; this folder only loads with it.
+       Babies are born as their genetic mother's xenotype. "excess" = the full xenotype plus the
+       mother's extra endogenes, nothing from the father, so no hybrids. order 1000 lets rarer
+       atavisms from other mods roll first.
+       Lunaveth: loads only with Genes &amp; More too, where the xenotype lives. -->
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>Lepthera_Atavism_Lunaveth</defName>
+    <sourceXenotype>Lepthera_Lunaveth</sourceXenotype>
+    <targetXenotype>Lepthera_Lunaveth</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+</Defs>

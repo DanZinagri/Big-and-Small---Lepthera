@@ -6,7 +6,9 @@
 	     (the xenotype swap patches point at the original instead).
 	     Mods/GenesAndMore: Lunaveth, which rely on Genes & More.
 	     Mods/AlphaGenes: Mycoth, which rely on Alpha Genes.
-	     Mods/NoFactionElves: Mycoth's skin and hair copies (Faction - Elves is 1.6 only). -->
+	     Mods/NoFactionElves: Mycoth's skin and hair copies (Faction - Elves is 1.6 only).
+	     Mods/Atavism*: Atavism Libraries births-as-mother's-xenotype defs (Lunaveth / Mycoth
+	     ones also need the mod that defines that xenotype). -->
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
@@ -17,6 +19,9 @@
 		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
 		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
 		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
+		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
+		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
 	</v1.6>
 	<v1.7>
 		<li>/</li>
@@ -28,5 +33,8 @@
 		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
 		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
 		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
+		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
+		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
 	</v1.7>
 </loadFolders>

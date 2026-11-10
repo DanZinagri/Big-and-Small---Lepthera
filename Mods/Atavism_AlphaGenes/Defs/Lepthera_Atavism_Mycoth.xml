@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Atavism Libraries (DanZinagri.AtavismLibraries) integration; this folder only loads with it.
+       Babies are born as their genetic mother's xenotype. "excess" = the full xenotype plus the
+       mother's extra endogenes, nothing from the father, so no hybrids. order 1000 lets rarer
+       atavisms from other mods roll first.
+       Mycoth: loads only with Alpha Genes too. They are Sterile, so this only matters if a
+       player removes that gene. -->
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>Lepthera_Atavism_Mycoth</defName>
+    <sourceXenotype>Lepthera_Mycoth</sourceXenotype>
+    <targetXenotype>Lepthera_Mycoth</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+</Defs>

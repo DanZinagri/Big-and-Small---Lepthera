@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Atavism Libraries (DanZinagri.AtavismLibraries) integration; this folder only loads with it.
+       Babies are born as their genetic mother's xenotype. "excess" = the full xenotype plus the
+       mother's extra endogenes, nothing from the father, so no hybrids. order 1000 lets rarer
+       atavisms from other mods roll first. -->
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>Lepthera_Atavism_Aurelith</defName>
+    <sourceXenotype>Lepthera_Aurelith</sourceXenotype>
+    <targetXenotype>Lepthera_Aurelith</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>Lepthera_Atavism_Noctyra</defName>
+    <sourceXenotype>Lepthera_Noctyra</sourceXenotype>
+    <targetXenotype>Lepthera_Noctyra</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>Lepthera_Atavism_Cindrathi</defName>
+    <sourceXenotype>Lepthera_Cindrathi</sourceXenotype>
+    <targetXenotype>Lepthera_Cindrathi</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+</Defs>
