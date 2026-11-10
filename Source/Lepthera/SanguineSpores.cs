@@ -6,12 +6,10 @@ using Verse;
 
 namespace Lepthera
 {
-    /// <summary>
-    /// Spore lesion: a real injury (tendable, can get infected, merges with an untended lesion on the
-    /// same part) that bleeds like a vanilla wound, except the spores die off after 4~6 hours and the
-    /// bleeding stops then instead of after vanilla's 1.5+ days. Tending stops it at once (vanilla).
-    /// A merge (recast on an untended lesion) resets ageTicks, so the timer restarts.
-    /// </summary>
+    // Spore lesion: a real injury (tendable, can get infected, merges with an untended lesion on the
+    // same part) that bleeds like a vanilla wound, except the spores die off after 4~6 hours and the
+    // bleeding stops then instead of after vanilla's 1.5+ days. Tending stops it at once (vanilla).
+    // A merge (recast on an untended lesion) resets ageTicks, so the timer restarts.
     public class Hediff_SporeLesion : Hediff_Injury
     {
         private const int MinBleedTicks = 10000;
@@ -49,21 +47,19 @@ namespace Lepthera
         }
     }
 
-    /// <summary>
-    /// Sanguine spores: gives every flesh pawn within the radius around the caster a spore lesion on
-    /// a lung (or the torso if it has none). The rot stink and the red spore burst come from the
-    /// ability's other comps.
-    /// </summary>
+    // Sanguine spores: gives every flesh pawn within the radius around the caster a spore lesion on
+    // a lung (or the torso if it has none). The rot stink and the red spore burst come from the
+    // ability's other comps.
     public class CompProperties_AbilitySporeBleed : CompProperties_AbilityEffect
     {
         public HediffDef hediff;
 
         public float radius = 3.5f;
 
-        /// <summary>Lesion size in hit points; capped at 30% of the part's current health so one cast never destroys it.</summary>
+        // Lesion size in hit points; capped at 30% of the part's current health so one cast never destroys it.
         public float severity = 1.5f;
 
-        /// <summary>Only pawns hostile to the caster bleed. The rot stink still reaches everyone.</summary>
+        // Only pawns hostile to the caster bleed. The rot stink still reaches everyone.
         public bool onlyHostiles = true;
 
         public CompProperties_AbilitySporeBleed()

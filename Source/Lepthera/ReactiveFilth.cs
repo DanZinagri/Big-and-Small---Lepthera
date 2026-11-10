@@ -3,32 +3,28 @@ using Verse;
 
 namespace Lepthera
 {
-    /// <summary>
-    /// Settings for <see cref="Filth_Reactive"/>, read from the filth ThingDef.
-    /// The filth reacts when it lands, and optionally each time more of it lands on the same pile.
-    /// </summary>
+    // Settings for Filth_Reactive, read from the filth ThingDef.
+    // The filth reacts when it lands, and optionally each time more of it lands on the same pile.
     public class ReactiveFilthExtension : DefModExtension
     {
-        /// <summary>Chance to start a small fire in the cell when the filth reacts.</summary>
+        // Chance to start a small fire in the cell when the filth reacts.
         public float igniteChance;
 
-        /// <summary>Size of that fire. Fire on bare ground with nothing to burn dies out quickly.</summary>
+        // Size of that fire. Fire on bare ground with nothing to burn dies out quickly.
         public float fireSize = 0.3f;
 
-        /// <summary>Gas released in the cell when the filth reacts (255 = one full cell).</summary>
+        // Gas released in the cell when the filth reacts (255 = one full cell).
         public int gasAmount;
 
         public GasType gasType = GasType.ToxGas;
 
-        /// <summary>Whether adding to an existing pile reacts as well, not only a new pile.</summary>
+        // Whether adding to an existing pile reacts as well, not only a new pile.
         public bool reactOnThicken;
     }
 
-    /// <summary>
-    /// Filth that starts a fire and/or releases gas where it lands. Used for the lepthera's ember
-    /// blood, fire vomit and tox blood (VEF's custom blood and vomit genes drop it like any filth).
-    /// No Harmony: it is the filth's own thingClass.
-    /// </summary>
+    // Filth that starts a fire and/or releases gas where it lands. Used for the lepthera's ember
+    // blood, fire vomit and tox blood (VEF's custom blood and vomit genes drop it like any filth).
+    // No Harmony: it is the filth's own thingClass.
     public class Filth_Reactive : Filth
     {
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -72,10 +68,8 @@ namespace Lepthera
             }
         }
 
-        /// <summary>
-        /// Spawns fire directly, since FireUtility.TryStartFireIn refuses cells with nothing
-        /// flammable in them. Never on water or where a fire already burns.
-        /// </summary>
+        // Spawns fire directly, since FireUtility.TryStartFireIn refuses cells with nothing
+        // flammable in them. Never on water or where a fire already burns.
         private static void TryIgnite(IntVec3 cell, Map map, float fireSize)
         {
             if (!cell.InBounds(map) || cell.GetFirstThing<Fire>(map) != null)

@@ -5,11 +5,9 @@ using Verse;
 
 namespace Lepthera
 {
-    /// <summary>
-    /// Fungal vampirism resurrection: vanilla's resurrect ability, after which the caster's germline
-    /// (endogenes and inheritable xenotype) overwrites the risen pawn's germline. Xenogenes are left
-    /// alone, like a germline implant. The caster's genes do not need to regrow.
-    /// </summary>
+    // Fungal vampirism resurrection: vanilla's resurrect ability, after which the caster's germline
+    // (endogenes and inheritable xenotype) overwrites the risen pawn's germline. Xenogenes are left
+    // alone, like a germline implant. The caster's genes do not need to regrow.
     public class CompProperties_FungalResurrect : CompProperties_AbilityEffect
     {
         public CompProperties_FungalResurrect()
@@ -58,8 +56,8 @@ namespace Lepthera
             return base.Valid(target, throwMessages);
         }
 
-        /// <summary>Replaces the recipient's endogenes with the caster's (removing before adding,
-        /// so no gene is left marked as overridden by one that is about to go).</summary>
+        // Replaces the recipient's endogenes with the caster's (removing before adding,
+        // so no gene is left marked as overridden by one that is about to go).
         public static void ImplantGermline(Pawn caster, Pawn recipient)
         {
             Pawn_GeneTracker from = caster?.genes;
@@ -90,11 +88,9 @@ namespace Lepthera
         }
     }
 
-    /// <summary>
-    /// Our copy of VRE - Fungoid's fungal flesh: eating fungus counts as eating human meat (for
-    /// cannibal precepts). Fungoid also stops the normal "ate non-cannibal food" thought, which needs
-    /// Harmony; this copy doesn't, so it only adds the cannibal event.
-    /// </summary>
+    // Our copy of VRE - Fungoid's fungal flesh: eating fungus counts as eating human meat (for
+    // cannibal precepts). Fungoid also stops the normal "ate non-cannibal food" thought, which needs
+    // Harmony; this copy doesn't, so it only adds the cannibal event.
     public class Gene_FungalFlesh : Gene
     {
         public override void Notify_IngestedThing(Thing thing, int numTaken)
