@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Lepthera wings: the user's own art (Textures/Lepthera/Wings/leptherawings), same stats, jump
+       ability and draw layers as Oops all BUGPARTS' BP_lunarmothwings (which the xenotypes used
+       before). Placement tuned by the user in the render tree (2026-11-09): drawn at 0.975 (65% of
+       OAB's 1.5), offset -0.16 down on north/south, east (-0.13 back, +0.09 up; west mirrors it).
+       North layer 55 sits above the head (50) but under hair (62) and headgear (70). BP_WingBase gives the Wing/Wings exclusion tags.
+       Drawn by B&S's Ultimate node with its three-colour shader, which loads the default
+       "_<rot>m" masks: mask red = colorA (eyespots and stripes), mask green = colorB (the rest of
+       the wing). The art is greyscale, so each colour tints it. One gene per colour scheme. -->
+  <GeneDef Name="Lepthera_WingsBase" ParentName="BP_WingBase" Abstract="True">
+    <displayCategory>Bug_BodyAttachment</displayCategory>
+    <biostatMet>-1</biostatMet>
+    <conditionalStatAffecters>
+      <li Class="ConditionalStatAffecter_Clothed">
+        <statOffsets>
+          <MoveSpeed>-0.2</MoveSpeed>
+        </statOffsets>
+      </li>
+      <li Class="ConditionalStatAffecter_Unclothed">
+        <statOffsets>
+          <MoveSpeed>-0.2</MoveSpeed>
+        </statOffsets>
+      </li>
+    </conditionalStatAffecters>
+    <abilities>
+      <li>BP_WingPoweredJump</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>BP_WingPoweredJump</AbilityDef>
+    </descriptionHyperlinks>
+    <symbolPack>
+      <prefixSymbols>
+        <li><symbol>wing</symbol></li>
+        <li><symbol>fly</symbol></li>
+        <li><symbol>flutter</symbol></li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <!-- Aurelith: brown markings on white wings, whatever their hair colour. -->
+  <GeneDef ParentName="Lepthera_WingsBase">
+    <defName>Lepthera_Wings_Brown</defName>
+    <iconPath>Lepthera/UI/Genes/Lepthera_Wings_Brown</iconPath>
+    <label>umber-marked wings</label>
+    <description>Carriers have broad, soft moth wings. The wings are pale white, marked with warm brown eyespots and bands.</description>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera wings</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(0.975,0.975)</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+            <offset>(0, 0, -0.16)</offset>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>55</layer>
+          </dataNorth>
+          <dataEast>
+            <offset>(-0.13, 0, 0.09)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Lepthera/Wings/leptherawings_light</li>
+          </texturePaths>
+          <colorA>
+            <color>(0.52, 0.35, 0.20)</color>
+          </colorA>
+          <colorB>
+            <color>(0.95, 0.94, 0.90)</color>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Cindrathi: hair-coloured markings on white wings. -->
+  <GeneDef ParentName="Lepthera_WingsBase">
+    <defName>Lepthera_Wings</defName>
+    <iconPath>Lepthera/UI/Genes/Lepthera_Wings</iconPath>
+    <label>lepthera wings</label>
+    <description>Carriers have broad, soft moth wings. The eyespots and bands grow in the colour of their hair; the rest of the wing is pale white.</description>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera wings</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(0.975,0.975)</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+            <offset>(0, 0, -0.16)</offset>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>55</layer>
+          </dataNorth>
+          <dataEast>
+            <offset>(-0.13, 0, 0.09)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Lepthera/Wings/leptherawings_light</li>
+          </texturePaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <color>(0.95, 0.94, 0.90)</color>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Mycoth: hair-coloured markings on skin-coloured wings. -->
+  <GeneDef ParentName="Lepthera_WingsBase">
+    <defName>Lepthera_Wings_Fungal</defName>
+    <iconPath>Lepthera/UI/Genes/Lepthera_Wings_Fungal</iconPath>
+    <label>mycelial wings</label>
+    <description>Carriers have broad, soft moth wings. The eyespots and bands grow in the colour of their hair; the rest of the wing takes on the colour of their skin.</description>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera wings</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(0.975,0.975)</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+            <offset>(0, 0, -0.16)</offset>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>55</layer>
+          </dataNorth>
+          <dataEast>
+            <offset>(-0.13, 0, 0.09)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Lepthera/Wings/leptherawings_light</li>
+          </texturePaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <skinColor>true</skinColor>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Noctyra: hair-coloured markings on midnight-blue wings. -->
+  <GeneDef ParentName="Lepthera_WingsBase">
+    <defName>Lepthera_Wings_Midnight</defName>
+    <iconPath>Lepthera/UI/Genes/Lepthera_Wings_Midnight</iconPath>
+    <label>midnight wings</label>
+    <description>Carriers have broad moth wings of a deep midnight blue. The eyespots and bands grow in the colour of their hair.</description>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera wings</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(0.975,0.975)</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+            <offset>(0, 0, -0.16)</offset>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>55</layer>
+          </dataNorth>
+          <dataEast>
+            <offset>(-0.13, 0, 0.09)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Lepthera/Wings/leptherawings_light</li>
+          </texturePaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <color>(0.13, 0.16, 0.36)</color>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Lunaveth: gold markings on midnight-blue wings. -->
+  <GeneDef ParentName="Lepthera_WingsBase">
+    <defName>Lepthera_Wings_Lunar</defName>
+    <iconPath>Lepthera/UI/Genes/Lepthera_Wings_Lunar</iconPath>
+    <label>lunar wings</label>
+    <description>Carriers have broad moth wings of a deep midnight blue, marked with eyespots and bands of shimmering gold.</description>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera wings</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(0.975,0.975)</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+            <offset>(0, 0, -0.16)</offset>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>55</layer>
+          </dataNorth>
+          <dataEast>
+            <offset>(-0.13, 0, 0.09)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Lepthera/Wings/leptherawings_light</li>
+          </texturePaths>
+          <colorA>
+            <color>(0.88, 0.68, 0.24)</color>
+          </colorA>
+          <colorB>
+            <color>(0.13, 0.16, 0.36)</color>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+</Defs>

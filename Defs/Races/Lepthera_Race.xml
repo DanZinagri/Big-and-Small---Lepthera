@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Lepthera: four-armed insectoid humanoid (Lepthera_Body.xml), plus the cloth diet.
+       Granted by the Lepthera_Physiology gene, not by any wing gene.
+       foodType is a number because FoodTypeFlags has no "cloth" name:
+       16191 = OmnivoreHuman (7999) | 8192, the unused bit Lepthera_ClothFood.xml gives fabrics.
+       No vanilla race or animal has 8192, so only Lepthera can eat cloth.
+       fleshType Insectoid makes RaceProps.Insect true: insect blood and wound effects, insect meat
+       when butchered (not human meat), and pollution stimulates them like insects (Biotech).
+       Humanlike filth and needs are unaffected (those checks test Humanlike first).
+       BS_Alt lets the framework substitute HAR's ThingDef_AlienRace when Humanoid Alien Races is loaded. -->
+  <ThingDef ParentName="Human" BS_Alt="ThingDef_AlienRace">
+    <defName>Lepthera</defName>
+    <label>lepthera</label>
+    <description>A four-armed, insect-like humanoid with a segmented abdomen, able to digest woven fibres as food.</description>
+    <race>
+      <body>Lepthera_Body</body>
+      <fleshType>Insectoid</fleshType>
+      <bloodDef>Filth_BloodInsect</bloodDef>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <foodType>16191</foodType>
+    </race>
+    <modExtensions>
+      <li Class="BigAndSmall.RaceExtension">
+        <raceHediff>Lepthera_RaceTracker</raceHediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Race tracker. No render nodes: wings, abdomen and antennae come from their own genes. -->
+  <HediffDef ParentName="BS_DefaultRaceTracker">
+    <defName>Lepthera_RaceTracker</defName>
+    <label>lepthera</label>
+    <description>This individual has an insect-like body with four arms and can digest cloth.</description>
+    <comps>
+      <li Class="BigAndSmall.CompProperties_Race">
+        <canSwapAwayFrom>true</canSwapAwayFrom>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <traitIcon>BS_Traits/FourArms</traitIcon>
+      </li>
+    </modExtensions>
+  </HediffDef>
+
+</Defs>

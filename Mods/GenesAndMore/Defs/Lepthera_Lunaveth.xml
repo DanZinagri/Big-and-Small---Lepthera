@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Lunaveth lean on Big and Small - Genes & More's genes, so this folder only loads when G&M is
+       active (loadFolders.xml). Patches/Lepthera_Lunaveth_Swaps.xml (same folder) handles the
+       Alpha Genes / VRE - Lycanthrope swaps. -->
+  <XenotypeDef>
+    <defName>Lepthera_Lunaveth</defName>
+    <label>lunaveth</label>
+    <description>Lunaveth are a nocturnal breed of Lepthera, their most defining trait is their acidic blood and ability to produce acid to hunt and destroy.</description>
+    <descriptionShort>Mystical nocturnal Lepthera</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <!-- This mod -->
+      <li>Lepthera_Physiology</li>
+      <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_MothAbdomen_TwoTone</li>
+      <li>Lepthera_FluffyBody</li>
+      <!-- Swapped for Alpha Genes' AG_AcidFangs when it is loaded (our copy then doesn't load) -->
+      <li>Lepthera_AcidFangs</li>
+      <!-- Oops all BUGPARTS 2 -->
+      <li>Lepthera_Wings_Lunar</li>
+      <li>Moth_floof_HairClr</li>
+      <!-- Big and Small Framework -->
+      <li>Body_FemaleOnly</li>
+      <!-- Biotech -->
+      <li>Delicate</li>
+      <li>NakedSpeed</li>
+      <li>Body_Standard</li>
+      <li>MinTemp_SmallDecrease</li>
+      <li>MaxTemp_SmallDecrease</li>
+      <li>DarkVision</li>
+      <li>Nearsighted</li>
+      <li>PsychicAbility_Enhanced</li>
+      <li>Immunity_Weak</li>
+      <li>FireWeakness</li>
+      <li>AptitudePoor_Mining</li>
+      <li>AptitudePoor_Social</li>
+      <li>AptitudePoor_Construction</li>
+      <li>Beauty_Beautiful</li>
+      <!-- Big and Small - Genes & More -->
+      <li>VU_Darkness_MoveSpeed_Quick</li>
+      <li>VU_DarknessWoundHealing_Fast</li>
+      <li>VU_DarknessMelee_Strong</li>
+      <li>BS_Glamour</li>
+      <li>BS_GeneStabilizing_Extreme</li>
+      <li>BS_StickyAcidSpray</li>
+      <li>BS_AcidResistanceTotal</li>
+      <li>BS_SlimeAttack</li>
+      <li>Small</li>
+      <!-- cosmetics: one hair and one skin colour is picked per pawn -->
+      <li>Hair_InkBlack</li>
+      <li>Hair_SnowWhite</li>
+      <li>Skin_InkBlack</li>
+      <li>Skin_SheerWhite</li>
+      <!-- Optional. AG_NightOwl becomes VRE_Nocturnal with VRE - Lycanthrope (swap patch). -->
+      <li MayRequire="sarg.alphagenes">AG_NightOwl</li>
+      <li MayRequire="sarg.alphagenes">AG_AcidicBlood</li>
+      <li MayRequire="sarg.alphagenes">AG_AcidicDetonation</li>
+      <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+      <li MayRequire="vanillaracesexpanded.insector">VRE_InsectFlesh</li>
+      <li MayRequire="sarg.alphagenes">AG_ChitinLeather</li>
+      <li MayRequire="sarg.alphagenes">AG_UnderdevelopedTeeth</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>

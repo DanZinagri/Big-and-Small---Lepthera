@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mycoth. Non-archite mix of vanilla's resurrect gene and a germline implanter: see
+       Lepthera_FungalResurrect in AbilityDefs. Needs hemogen, like vanilla resurrect. -->
+  <GeneDef>
+    <defName>Lepthera_FungalResurrection</defName>
+    <label>fungal vampirism resurrection</label>
+    <labelShortAdj>fungal-resurrector</labelShortAdj>
+    <description>Carriers host fungal symbionts in their blood that can infuse a corpse, rebuild degenerated tissue and bring it back to life. The fungus then rewrites the body's germline into the carrier's own, so the risen share the carrier's genes. This can only be done very rarely, and comes at a steep hemogen cost.</description>
+    <iconPath>UI/Icons/Genes/Gene_Resurrect</iconPath>
+    <iconColor>(0.6, 0.8, 0.45)</iconColor>
+    <prerequisite>Hemogenic</prerequisite>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>Lepthera_FungalResurrect</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>Lepthera_FungalResurrect</AbilityDef>
+    </descriptionHyperlinks>
+    <customEffectDescriptions>
+      <li>The risen pawn's germline genes and xenotype are replaced with the caster's. Their xenogenes are kept.</li>
+      <li>The caster's genes do not need to regrow afterwards.</li>
+    </customEffectDescriptions>
+    <biostatCpx>4</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <minAgeActive>3</minAgeActive>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+  <!-- Mycoth. See Lepthera_SanguineSpores in AbilityDefs. -->
+  <GeneDef>
+    <defName>Lepthera_SanguineSpores</defName>
+    <label>sanguine spores</label>
+    <labelShortAdj>sporebleeder</labelShortAdj>
+    <description>Carriers grow blood-red spores in their bloodstream and can exhale them in a cloud. Enemies who breathe the spores begin to bleed, and the cloud leaves a rot stink behind.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <iconColor>(0.75, 0.15, 0.2)</iconColor>
+    <prerequisite>Hemogenic</prerequisite>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>Lepthera_SanguineSpores</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>Lepthera_SanguineSpores</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <minAgeActive>3</minAgeActive>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+</Defs>

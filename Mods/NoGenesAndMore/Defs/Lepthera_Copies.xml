@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Copy of Big and Small - Genes & More's LoS_VenomTalons (same stats, vanilla toxic scratch).
+       Patches/Lepthera_Noctyra_Swaps.xml swaps in G&M's own gene when G&M is loaded. -->
+  <GeneDef>
+    <defName>Lepthera_VenomTalons</defName>
+    <label>venom talons</label>
+    <description>Carriers of this gene possess dangerous venomous talons. They are good at getting into the chinks of armour.</description>
+    <iconPath>UI/Icons/Genes/Gene_StrongMeleeDamage</iconPath>
+    <iconColor>(0.55, 0.85, 0.3)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>90% Hand part-efficiency</li>
+    </customEffectDescriptions>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>Lepthera_VenomTalonsHediff</hediff>
+            <bodyparts>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Copy of Big and Small - Genes & More's LoS_VenomClaws, using vanilla's toxic scratch instead
+       of G&M's acid build-up (that capacity lives in G&M). SM_UnarmedAttackSpeed is B&S Framework's. -->
+  <HediffDef>
+    <defName>Lepthera_VenomTalonsHediff</defName>
+    <label>venom talons</label>
+    <description>Long envenomed talons. They are very good at getting into the chinks of armour.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <SM_UnarmedAttackSpeed>0.05</SM_UnarmedAttackSpeed>
+        </statOffsets>
+        <partEfficiencyOffset>-0.1</partEfficiencyOffset>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>venom talons</label>
+            <capacities>
+              <li>Cut</li>
+              <li>ScratchToxic</li>
+            </capacities>
+            <power>18</power>
+            <chanceFactor>2.2</chanceFactor>
+            <cooldownTime>2.3</cooldownTime>
+            <armorPenetration>0.5</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <!-- Copy of Big and Small - Genes & More's BS_LargeFrame (same stats; the SM_ stats are
+       B&S Framework's). Patches/Lepthera_Aurelith_Swaps.xml swaps in G&M's own gene when loaded.
+       Same "BodySize" exclusion tag as G&M's frames. -->
+  <GeneDef>
+    <defName>Lepthera_LargeFrame</defName>
+    <label>large frame</label>
+    <description>Carriers of this gene grow larger than baseline humans. Comparable in size to a baseliner with gigantism but without the health issues.</description>
+    <iconPath>UI/Icons/Genes/Gene_BodyHulk</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>BodySize</li>
+    </exclusionTags>
+    <statFactors>
+      <MiningSpeed>1.35</MiningSpeed>
+      <ConstructionSpeed>1.2</ConstructionSpeed>
+      <DeepDrillingSpeed>1.2</DeepDrillingSpeed>
+      <MoveSpeed>1.1</MoveSpeed>
+      <CarryingCapacity>1.3</CarryingCapacity>
+      <VEF_MassCarryCapacity>1.3</VEF_MassCarryCapacity>
+      <SM_RaidWealthMultiplier>1.2</SM_RaidWealthMultiplier>
+    </statFactors>
+    <statOffsets>
+      <SM_BodySizeOffset>0.4</SM_BodySizeOffset>
+      <SM_RaidWealthOffset>750</SM_RaidWealthOffset>
+    </statOffsets>
+  </GeneDef>
+
+</Defs>

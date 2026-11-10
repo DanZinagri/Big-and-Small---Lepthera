@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Loaded only with Genes & More (Lunaveth live in this folder). Swaps are keyed on the other
+       mod's GeneDef existing, not on the mod's name. -->
+
+  <!-- Alpha Genes loaded: its acid fangs replace our copy (which then isn't loaded at all). -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="AG_AcidFangs"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Lunaveth"]/genes/li[text()="Lepthera_AcidFangs"]</xpath>
+      <value>
+        <li>AG_AcidFangs</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- VRE - Lycanthrope loaded: nocturnal instead of Alpha Genes' night owl (added even without
+       Alpha Genes). MMMM only does this swap for specific other mods' xenotypes, not ours. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="VRE_Nocturnal"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/XenotypeDef[defName="Lepthera_Lunaveth"]/genes/li[text()="AG_NightOwl"]</xpath>
+          <match Class="PatchOperationRemove">
+            <xpath>Defs/XenotypeDef[defName="Lepthera_Lunaveth"]/genes/li[text()="AG_NightOwl"]</xpath>
+          </match>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/XenotypeDef[defName="Lepthera_Lunaveth"]/genes</xpath>
+          <value>
+            <li>VRE_Nocturnal</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

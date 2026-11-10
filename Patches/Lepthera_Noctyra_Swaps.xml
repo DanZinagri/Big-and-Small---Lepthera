@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Each swap is keyed on the other mod's GeneDef existing (patches see every mod's defs),
+       not on the mod's name. -->
+
+  <!-- Alpha Genes loaded: tox immunity becomes vanilla's total antitoxic lungs. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="AG_VenomFangs"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes/li[text()="ToxResist_Total"]</xpath>
+      <value>
+        <li>ToxicEnvironmentResistance_Total</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Alpha Genes loaded: use its venom fangs (with the fang graphic) instead of ours. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="AG_VenomFangs"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes/li[text()="Lepthera_VenomFangs"]</xpath>
+      <value>
+        <li>AG_VenomFangs</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Big and Small - Genes & More loaded: use its venom talons instead of ours. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="LoS_VenomTalons"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes/li[text()="Lepthera_VenomTalons"]</xpath>
+      <value>
+        <li>LoS_VenomTalons</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

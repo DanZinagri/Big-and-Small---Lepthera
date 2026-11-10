@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Filth dropped by the lepthera's blood and vomit genes (VEF GeneExtension customBloodThingDef /
+       customVomitThingDef). Lepthera.Filth_Reactive (Lepthera.dll) reacts when a new pile lands:
+       starts a small fire and/or releases gas, set by Lepthera.ReactiveFilthExtension. -->
+
+  <!-- Ember blood (Cindrathi): glowing orange spatter, 20% chance per new pile to flare into a
+       brief fire. Only new piles roll, so a pawn bleeding in one spot does not keep relighting it. -->
+  <ThingDef ParentName="BaseFilth">
+    <defName>Lepthera_Filth_EmberBlood</defName>
+    <label>ember blood</label>
+    <description>Hot, smouldering blood that glows like embers. It sometimes flares up as it lands.</description>
+    <thingClass>Lepthera.Filth_Reactive</thingClass>
+    <statBases>
+      <Beauty>-30</Beauty>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <color>(235, 105, 25, 200)</color>
+    </graphicData>
+    <filth>
+      <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+      <disappearsInDays>35~40</disappearsInDays>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>80</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+    </filth>
+    <modExtensions>
+      <li Class="Lepthera.ReactiveFilthExtension">
+        <igniteChance>0.20</igniteChance>
+        <fireSize>0.2</fireSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Fire vomit (Cindrathi): always bursts into flame where it lands. Burns off quickly. -->
+  <ThingDef ParentName="BaseFilth">
+    <defName>Lepthera_Filth_FireVomit</defName>
+    <label>burning vomit</label>
+    <description>Searing, oily vomit that bursts into flame as soon as it hits the ground.</description>
+    <thingClass>Lepthera.Filth_Reactive</thingClass>
+    <statBases>
+      <Beauty>-40</Beauty>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Filth/PoolSoft</texPath>
+      <color>(240, 120, 20, 180)</color>
+    </graphicData>
+    <filth>
+      <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+      <disappearsInDays>1~2</disappearsInDays>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+    </filth>
+    <modExtensions>
+      <li Class="Lepthera.ReactiveFilthExtension">
+        <igniteChance>1</igniteChance>
+        <fireSize>0.4</fireSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Tox blood: sickly green spatter that gives off a puff of tox gas (about one cell's worth)
+       each time it lands, including onto an existing pile. -->
+  <ThingDef ParentName="BaseFilth">
+    <defName>Lepthera_Filth_ToxBlood</defName>
+    <label>tox blood</label>
+    <description>Thick green blood that fumes with tox gas as it spills.</description>
+    <thingClass>Lepthera.Filth_Reactive</thingClass>
+    <statBases>
+      <Beauty>-40</Beauty>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <color>(110, 165, 35, 190)</color>
+    </graphicData>
+    <filth>
+      <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+      <disappearsInDays>35~40</disappearsInDays>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>80</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+    </filth>
+    <modExtensions>
+      <li Class="Lepthera.ReactiveFilthExtension">
+        <gasType>ToxGas</gasType>
+        <gasAmount>255</gasAmount>
+        <reactOnThicken>true</reactOnThicken>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Version of VRE - Sanguophage's VRE_ToxicCloud without VRE or hemogen: vanilla's release-gas
+       ability comp (the one Anomaly's deadlife dust uses) puffs tox gas out from the caster.
+       Same cooldown as VRE (1 hour). cellsToFill 40 is roughly a radius-3.5 cloud once it spreads. -->
+  <AbilityDef>
+    <defName>Lepthera_ToxicCloud</defName>
+    <label>toxic cloud</label>
+    <description>Exhale a thick cloud of tox gas from special reservoirs in the lungs. Tox gas is deadly to almost every creature.</description>
+    <iconPath>Things/Item/Equipment/WeaponRanged/ToxGrenades</iconPath>
+    <cooldownTicksRange>3600</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>toxic cloud</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>0.5</warmupTime>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityReleaseGas">
+        <gasType>ToxGas</gasType>
+        <cellsToFill>40</cellsToFill>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Fungal vampirism resurrection (Mycoth): vanilla's Resurrect ability (same hemogen cost,
+       ~1 year cooldown instead of ~2), then Lepthera.CompAbilityEffect_FungalResurrect overwrites the risen
+       pawn's germline with the caster's, so they rise as the caster's xenotype. -->
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>Lepthera_FungalResurrect</defName>
+    <label>fungal resurrection</label>
+    <description>Flood a corpse with the fungal symbionts in the bloodstream. The fungus knits degenerated tissue back together and kickstarts the vital functions, then takes root in the body's genes: the dead rise again carrying the caster's germline. The older and worse-preserved the corpse is, the more likely it is that they will come back with memory loss or health conditions. The fungus takes a long time to recover, so this can only be done very rarely.</description>
+    <iconPath>UI/Abilities/Resurrect</iconPath>
+    <cooldownTicksRange>3420000~3780000</cooldownTicksRange> <!-- 0.95~1.05 years (vanilla resurrect is ~2) -->
+    <warmupMote>Mote_ResurrectAbility</warmupMote>
+    <warmupStartSound>Resurrect_Cast</warmupStartSound>
+    <category>Sanguophage</category>
+    <displayOrder>601</displayOrder>
+    <hostile>false</hostile>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>2</warmupTime>
+      <soundCast>Resurrect_Resolve</soundCast>
+      <targetParams>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>true</canTargetCorpses>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Lepthera.CompProperties_FungalResurrect" />
+      <li Class="CompProperties_AbilityHemogenCost">
+        <hemogenCost>0.90</hemogenCost>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Sanguine spores (Mycoth): costs 10 hemogen, no target. Gives hostile flesh pawns within
+       3.5 cells a tendable bleeding lung lesion (Lepthera.CompAbilityEffect_SporeBleed), releases rot stink like the toxic cloud
+       releases tox gas (lung rot buildup for anyone who breathes it; Mycoth's lung rot strength
+       makes it a buff for them), and sprays a red spore burst over the same area. -->
+  <AbilityDef>
+    <defName>Lepthera_SanguineSpores</defName>
+    <label>sanguine spores</label>
+    <description>Exhale a cloud of blood-red spores grown in the bloodstream. Enemies caught in the cloud begin to bleed as the spores take root in their lungs, and the cloud leaves a lingering rot stink behind.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <cooldownTicksRange>2500</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>true</hostile>
+    <category>Sanguophage</category>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>sanguine spores</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>0.5</warmupTime>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityHemogenCost">
+        <hemogenCost>0.10</hemogenCost>
+      </li>
+      <li Class="Lepthera.CompProperties_AbilitySporeBleed">
+        <hediff>Lepthera_SporeLesion</hediff>
+        <radius>3.5</radius>
+      </li>
+      <li Class="CompProperties_AbilityReleaseGas">
+        <gasType>RotStink</gasType>
+        <cellsToFill>40</cellsToFill>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnCaster">
+        <effecterDef>Lepthera_SanguineSporeBurst</effecterDef>
+        <maintainTicks>240</maintainTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

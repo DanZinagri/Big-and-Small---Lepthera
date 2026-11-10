@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Loaded only with Alpha Genes (Mycoth live in this folder). Swaps are keyed on the other
+       mod's GeneDef existing, not on the mod's name. -->
+
+  <!-- VRE - Fungoid loaded: its rotblood and fungal flesh replace our copies (which then aren't
+       loaded at all, see Mods/NoFungoid). -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="VRE_RotBlood"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Mycoth"]/genes/li[text()="Lepthera_RotBlood"]</xpath>
+      <value>
+        <li>VRE_RotBlood</li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="VRE_FungalFlesh"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Mycoth"]/genes/li[text()="Lepthera_FungalFlesh"]</xpath>
+      <value>
+        <li>VRE_FungalFlesh</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Faction - Elves loaded: its dark purple skin and ash-brown hair replace our copies (see
+       Mods/NoFactionElves). -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="Skin_DarkPurple"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Mycoth"]/genes/li[text()="Lepthera_Skin_DarkPurple"]</xpath>
+      <value>
+        <li>Skin_DarkPurple</li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="Hair_AshBrown"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Mycoth"]/genes/li[text()="Lepthera_Hair_AshBrown"]</xpath>
+      <value>
+        <li>Hair_AshBrown</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Makes every Fabric stuff item food with the unused food-type bit 8192, which only the
+       Lepthera race (foodType 16191) has. Matches on stuffProps (what the item IS), not
+       stuffCategories (what apparel can be MADE from), so clothing is untouched.
+       Abstract parents are matched too: vanilla WoolBase carries Fabric for most modded wools,
+       and its children inherit the ingestible block from it.
+       Items that already define <ingestible> (e.g. VPE mycothread, already human food) are skipped.
+       The other operations run first because the last operation adds <ingestible>, which would
+       make "not(ingestible)" stop matching.
+       success=Always: on some mod lists an operation legitimately matches nothing. -->
+
+  <!-- 1. Nutrition on items that already have statBases -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/ThingDef[stuffProps/categories/li="Fabric" and not(ingestible)]/statBases[not(Nutrition)]</xpath>
+    <value>
+      <Nutrition>0.05</Nutrition>
+    </value>
+  </Operation>
+
+  <!-- 2. Nutrition on items with no statBases node -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/ThingDef[stuffProps/categories/li="Fabric" and not(ingestible) and not(statBases)]</xpath>
+    <value>
+      <statBases>
+        <Nutrition>0.05</Nutrition>
+      </statBases>
+    </value>
+  </Operation>
+
+  <!-- 3. socialPropernessMatters, which vanilla requires on any haulable food above
+       DesperateOnlyForHumanlikes (config error otherwise). Same rule as raw vegetables: food
+       inside a prison cell is the prisoner's, so colonists won't eat or haul it from there. -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/ThingDef[stuffProps/categories/li="Fabric" and not(ingestible) and not(socialPropernessMatters)]</xpath>
+    <value>
+      <socialPropernessMatters>true</socialPropernessMatters>
+    </value>
+  </Operation>
+
+  <!-- 4. The food block. No tasteThought, so no "ate raw food" mood debuff.
+       RawBad: eaten after any meal but before going hungry. -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success>
+    <xpath>Defs/ThingDef[stuffProps/categories/li="Fabric" and not(ingestible)]</xpath>
+    <value>
+      <ingestible>
+        <foodType>8192</foodType>
+        <preferability>RawBad</preferability>
+        <maxNumToIngestAtOnce>20</maxNumToIngestAtOnce>
+        <ingestEffect>EatVegetarian</ingestEffect>
+        <ingestSound>RawVegetable_Eat</ingestSound>
+      </ingestible>
+    </value>
+  </Operation>
+
+</Patch>

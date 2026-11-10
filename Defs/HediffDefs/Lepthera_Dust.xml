@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Visual only, for Lepthera_DefensiveDust. Hidden from the health tab (becomeVisible false).
+       Vanilla's HediffComp_Effecter: PawnStatusEffecters keeps the effecter running while the pawn
+       is spawned. -->
+  <HediffDef>
+    <defName>Lepthera_DefensiveDustHediff</defName>
+    <label>defensive dust</label>
+    <description>A haze of fine scale dust hangs around this person.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>false</isBad>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>Lepthera_DustHaze</stateEffecter>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Pale, slow drifting dust puffs around the pawn (vanilla DustPuff flecks, tinted). -->
+  <EffecterDef>
+    <defName>Lepthera_DustHaze</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>DustPuff</fleckDef>
+        <chancePerTick>0.04</chancePerTick>
+        <positionRadius>0.45</positionRadius>
+        <scale>0.7~1.1</scale>
+        <rotationRate>-40~40</rotationRate>
+        <speed>0.1~0.4</speed>
+        <color>(235, 225, 200, 150)</color>
+      </li>
+    </children>
+  </EffecterDef>
+
+</Defs>

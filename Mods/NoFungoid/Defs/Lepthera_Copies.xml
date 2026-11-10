@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Loads only without VRE - Fungoid (loadFolders.xml). With Fungoid, Mycoth get Fungoid's own
+       VRE_RotBlood and VRE_FungalFlesh instead (Mods/AlphaGenes/Patches/Lepthera_Mycoth_Swaps.xml). -->
+
+  <!-- Copy of VRE_RotBlood: same stats; the blood lets out rot stink where it lands (Fungoid
+       spawns 2000 rot stink per new pile, so does this). No custom wound textures. -->
+  <GeneDef>
+    <defName>Lepthera_RotBlood</defName>
+    <label>rotblood</label>
+    <description>Carriers of this gene bleed stinking rot blood.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <iconColor>(0.89, 0.52, 0.38)</iconColor>
+    <displayCategory>Healing</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>AG_BloodType</li>
+      <li>BloodType</li>
+      <li>Blood</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <customBloodThingDef>Lepthera_Filth_RotBlood</customBloodThingDef>
+        <customBloodEffect>Lepthera_Damage_HitRotFlesh</customBloodEffect>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Lepthera_Filth_RotBlood</defName>
+    <label>rotblood</label>
+    <thingClass>Lepthera.Filth_Reactive</thingClass>
+    <statBases>
+      <Beauty>-30</Beauty>
+      <Cleanliness>-10</Cleanliness>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <color>(226,133,98, 180)</color>
+    </graphicData>
+    <filth>
+      <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+      <disappearsInDays>35~40</disappearsInDays>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+    </filth>
+    <modExtensions>
+      <li Class="Lepthera.ReactiveFilthExtension">
+        <gasType>RotStink</gasType>
+        <gasAmount>2000</gasAmount>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>Lepthera_Damage_HitRotFlesh</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.4</positionRadius>
+        <fleckDef>AirPuff</fleckDef>
+        <burstCount>4~5</burstCount>
+        <speed>0.4~0.8</speed>
+        <scale>1.0~1.1</scale>
+        <color>(120, 18, 0)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <fleckDef>BloodSplash</fleckDef>
+        <burstCount>2~3</burstCount>
+        <scale>1.1~1.4</scale>
+        <color>(226,133,98)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <positionRadius>0.0</positionRadius>
+        <fleckDef>BodyImpact</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>0.4</scale>
+        <color>(255, 120, 30, 60)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.25~0.25</offsetTowardsTarget>
+    <positionRadius>0.1</positionRadius>
+  </EffecterDef>
+
+  <!-- Copy of VRE_FungalFlesh: eating fungus counts as eating human meat (Lepthera.Gene_FungalFlesh).
+       Fungoid also hides the normal "ate non-cannibal food" thought, which this copy cannot do
+       without Harmony. -->
+  <GeneDef>
+    <defName>Lepthera_FungalFlesh</defName>
+    <label>fungal flesh</label>
+    <labelShortAdj>fungal</labelShortAdj>
+    <description>Carriers of this gene have fungal matter in their flesh. Consuming any fungus by them is classed as cannibalism.</description>
+    <geneClass>Lepthera.Gene_FungalFlesh</geneClass>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <iconColor>(0.6, 0.75, 0.5)</iconColor>
+    <displayCategory>Healing</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+</Defs>

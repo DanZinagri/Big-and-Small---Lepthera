@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Searing grasp: melee attack dealing vanilla Flame damage (burns, and can set the target
+       alight, like any flame hit). Needs its own tool capacity + maneuver, since vanilla has no
+       melee flame attack. -->
+  <ToolCapacityDef>
+    <defName>Lepthera_Searing</defName>
+    <label>searing grasp</label>
+  </ToolCapacityDef>
+
+  <ManeuverDef>
+    <defName>Lepthera_Searing</defName>
+    <requiredCapacity>Lepthera_Searing</requiredCapacity>
+    <verb>
+      <verbClass>Verb_MeleeAttackDamage</verbClass>
+      <meleeDamageDef>Flame</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Scratch_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Scratch_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Scratch_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Scratch_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+
+  <!-- Applied to each hand (all four) by B&S applyPartHediff on Lepthera_SearingGrasp. -->
+  <HediffDef>
+    <defName>Lepthera_SearingGraspHediff</defName>
+    <label>searing grasp</label>
+    <description>Hands that run hot enough to scorch whatever they grab.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>searing grasp</label>
+            <capacities>
+              <li>Lepthera_Searing</li>
+            </capacities>
+            <power>10</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+
+</Defs>

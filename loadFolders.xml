@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+	<!-- Root: Defs, Patches and Textures for both versions. Version folders: Lepthera.dll only.
+	     Mods/No*: our copies of other mods' genes, loaded only when that mod is NOT active
+	     (the xenotype swap patches point at the original instead).
+	     Mods/GenesAndMore: Lunaveth, which rely on Genes & More.
+	     Mods/AlphaGenes: Mycoth, which rely on Alpha Genes.
+	     Mods/NoFactionElves: Mycoth's skin and hair copies (Faction - Elves is 1.6 only). -->
+	<v1.6>
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModNotActive="sarg.alphagenes">Mods/NoAlphaGenes</li>
+		<li IfModNotActive="RedMattis.BigSmall.Core">Mods/NoGenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core">Mods/GenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">Mods/GenesAndMore_NoAlphaGenes</li>
+		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
+		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
+		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+	</v1.6>
+	<v1.7>
+		<li>/</li>
+		<li>1.7</li>
+		<li IfModNotActive="sarg.alphagenes">Mods/NoAlphaGenes</li>
+		<li IfModNotActive="RedMattis.BigSmall.Core">Mods/NoGenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core">Mods/GenesAndMore</li>
+		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">Mods/GenesAndMore_NoAlphaGenes</li>
+		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
+		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
+		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+	</v1.7>
+</loadFolders>

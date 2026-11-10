@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Loads only with Genes & More and without Alpha Genes (loadFolders.xml). -->
+
+  <!-- Copy of Alpha Genes' AG_AcidFangs without the fang graphic, for Lunaveth. AG's acid damage
+       lives in AG, so this uses Genes & More's acid build-up attack (BS_AcidBuiltupCap). -->
+  <GeneDef>
+    <defName>Lepthera_AcidFangs</defName>
+    <label>acid fangs</label>
+    <description>Carriers of this gene have hidden fangs that can be used in melee combat to inject a powerful acid.</description>
+    <iconPath>UI/Icons/Genes/Gene_Bloodfeeder</iconPath>
+    <iconColor>(0.75, 0.9, 0.2)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>Fang</li>
+      <li>Fangs</li>
+      <li>AG_Fangs</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>Lepthera_AcidFangsHediff</hediff>
+            <bodyparts>
+              <li>Jaw</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>Lepthera_AcidFangsHediff</defName>
+    <label>acid fangs</label>
+    <description>Hidden fangs that can be used in melee combat to inject a powerful acid.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>acid fangs</label>
+            <capacities>
+              <li>BS_AcidBuiltupCap</li>
+            </capacities>
+            <power>16</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

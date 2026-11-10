@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Alpha Genes loaded: Cindrathi get its greater fire spew instead of vanilla fire spew.
+       Keyed on the GeneDef existing (patches see every mod's defs), not on the mod's name. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="AG_GreaterFireSpew"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Cindrathi"]/genes/li[text()="FireSpew"]</xpath>
+      <value>
+        <li>AG_GreaterFireSpew</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

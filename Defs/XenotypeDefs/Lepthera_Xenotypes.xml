@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <XenotypeDef>
+    <defName>Lepthera_Aurelith</defName>
+    <label>aurelith</label>
+    <description>Aurelith are imperial lepthera, a regal breed of moth people known for their larger frame and silk production.</description>
+    <descriptionShort>Regal Silk Producing Lepthera</descriptionShort>
+    <!-- Placeholder icon borrowed from Oops all BUGPARTS' Lunarian. -->
+    <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <!-- This mod: race swap (four arms, abdomen, insect flesh, cloth diet), antennae, moth abdomen, two-tone fluffy body -->
+      <li>Lepthera_Physiology</li>
+      <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_MothAbdomen</li>
+      <li>Lepthera_FluffyBody</li>
+      <!-- Oops all BUGPARTS 2 (required) -->
+      <li>Lepthera_Wings_Brown</li>
+      <li>Moth_floof_HairClr</li>
+      <!-- Big and Small Framework (required) -->
+      <li>Body_FemaleOnly</li>
+      <!-- Biotech -->
+      <li>Delicate</li>
+      <li>NakedSpeed</li>
+      <li>Instability_Mild</li>
+      <li>Body_Standard</li>
+      <li>MinTemp_SmallDecrease</li>
+      <li>MaxTemp_SmallDecrease</li>
+      <li>FireWeakness</li>
+      <li>Aggression_DeadCalm</li>
+      <li>LowSleep</li>
+      <li>Beauty_Pretty</li>
+      <li>AptitudeStrong_Artistic</li>
+      <li>AptitudeStrong_Shooting</li>
+      <li>AptitudeStrong_Social</li>
+      <li>AptitudePoor_Mining</li>
+      <li>AptitudePoor_Construction</li>
+      <li>MoveSpeed_Slow</li>
+      <li>PsychicAbility_Enhanced</li>
+      <li>Immunity_Strong</li>
+      <li>Superclotting</li>
+      <!-- This mod: Patches/Lepthera_Aurelith_Swaps.xml swaps in G&M's BS_LargeFrame when loaded -->
+      <li>Lepthera_LargeFrame</li>
+      <li>Lepthera_DefensiveDust</li>
+      <!-- Silk glands: swapped to Medieval Overhaul silk by Patches/Lepthera_SilkGlands_MO.xml -->
+      <li>Lepthera_SilkGlands</li>
+      <!-- cosmetics: one hair colour is picked per pawn (vanilla Hair_DarkBrown is "brown hair") -->
+      <li>Hair_DarkBrown</li>
+      <li>Hair_MidBlack</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_Hair_DarkGray</li>
+      <!-- Optional -->
+      <li MayRequire="elsov.highborn">HBX_Haughty</li>
+      <li MayRequire="sarg.alphagenes">AG_FrailBack</li>
+      <li MayRequire="sarg.alphagenes">AG_InsectBlood</li>
+      <li MayRequire="vanillaracesexpanded.insector">VRE_InsectFlesh</li>
+      <li MayRequire="sarg.alphagenes">AG_ChitinLeather</li>
+      <li MayRequire="sarg.alphagenes">AG_UnderdevelopedTeeth</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- Mycoth live in Mods/AlphaGenes (they only exist with Alpha Genes). -->
+  <XenotypeDef>
+    <defName>Lepthera_Noctyra</defName>
+    <label>noctyra</label>
+    <description>Noctyra are a type of Lepthera known for their use of various poisons to hunt their prey.</description>
+    <descriptionShort>Dark, Predatory Lepthera</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>Lepthera_Physiology</li>
+      <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_MothAbdomen_TwoTone</li>
+      <li>Lepthera_FluffyBody</li>
+      <li>Lepthera_Wings_Midnight</li>
+      <li>Moth_floof_HairClr</li>
+      <li>Body_FemaleOnly</li>
+      <li>NakedSpeed</li>
+      <li>Instability_Mild</li>
+      <li>Body_Standard</li>
+      <li>MinTemp_SmallDecrease</li>
+      <li>MaxTemp_SmallDecrease</li>
+      <li>PsychicAbility_Dull</li>
+      <li>Mood_Pessimist</li>
+      <li>AptitudeStrong_Melee</li>
+      <li>MeleeDamage_Strong</li>
+      <li>Nearsighted</li>
+      <li>DarkVision</li>
+      <!-- Patches/Lepthera_Noctyra_Swaps.xml: ToxResist_Total becomes total antitoxic lungs with
+           Alpha Genes; our venom talons/fangs become G&M's / Alpha Genes' own when those are loaded -->
+      <li>ToxResist_Total</li>
+      <li>FireWeakness</li>
+      <li>Lepthera_VenomTalons</li>
+      <li>Lepthera_VenomFangs</li>
+      <li>Lepthera_ToxicCloud</li>
+      <!-- cosmetics: one hair colour is picked per pawn -->
+      <li>Hair_SnowWhite</li>
+      <li>Hair_Gray</li>
+      <li>Hair_DarkBlack</li>
+      <li>Hair_InkBlack</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_Hair_DarkGray</li>
+      <li MayRequire="sinner.softerhaircolors">Soft_Hair_DeepBlack</li>
+      <!-- cosmetics: one skin colour is picked per pawn -->
+      <li>Skin_SheerWhite</li>
+      <li>Skin_LightGray</li>
+      <li>Skin_SlateGray</li>
+      <li>Skin_InkBlack</li>
+      <li MayRequire="sarg.alphagenes">AG_Skin_Silver</li>
+      <li>Lepthera_ToxBlood</li>
+      <li MayRequire="vanillaracesexpanded.insector">VRE_InsectFlesh</li>
+      <li MayRequire="sarg.alphagenes">AG_ChitinLeather</li>
+      <li MayRequire="sarg.alphagenes">AG_UnderdevelopedTeeth</li>
+    </genes>
+  </XenotypeDef>
+  <!-- Same genes as Aurelith for now; identity-specific genes still to come. -->
+  <XenotypeDef>
+    <defName>Lepthera_Cindrathi</defName>
+    <label>cindrathi</label>
+    <description>Cindrathi are Lepthera with a strong connection to fire, at home in the heat whose internals cause them to produce a blood and bile capable of starting fires.</description>
+    <descriptionShort>Fiery Lepthera</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>Lepthera_Physiology</li>
+      <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_MothAbdomen</li>
+      <li>Lepthera_FluffyBody</li>
+      <li>Lepthera_Wings</li>
+      <li>Moth_floof_HairClr</li>
+      <li>Body_FemaleOnly</li>
+      <li>Delicate</li>
+      <li>NakedSpeed</li>
+      <li>Instability_Mild</li>
+      <li>Body_Standard</li>
+      <li>FireResistant</li>
+      <!-- Patches/Lepthera_Cindrathi_AlphaGenes.xml swaps this for AG_GreaterFireSpew when Alpha Genes is loaded -->
+      <li>FireSpew</li>
+      <li>AptitudePoor_Mining</li>
+      <li>AptitudePoor_Medicine</li>
+      <!-- cosmetics: one hair and one skin colour is picked per pawn -->
+      <li>Hair_SnowWhite</li>
+      <li>Hair_Gray</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_Hair_TrueWhite</li>
+      <li>Skin_Orange</li>
+      <li>Skin_DeepRed</li>
+      <li>Skin_PaleRed</li>
+      <li MayRequire="tug.minotaur">RBM_EarthySkin</li>
+      <li MayRequire="vanillaracesexpanded.pigskin">VRE_AuburnSkin</li>
+      <li MayRequire="vanillaracesexpanded.pigskin">VRE_ChocolateSkin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li>MaxTemp_LargeIncrease</li>
+      <li>Lepthera_SearingGrasp</li>
+      <li>Lepthera_EmberBlood</li>
+      <li>Lepthera_FireVomit</li>
+      <li MayRequire="vanillaracesexpanded.insector">VRE_InsectFlesh</li>
+      <li MayRequire="sarg.alphagenes">AG_ChitinLeather</li>
+      <li MayRequire="sarg.alphagenes">AG_UnderdevelopedTeeth</li>
+      <li MayRequire="sarg.alphagenes">AG_FireObsession</li>
+    </genes>
+  </XenotypeDef>
+</Defs>

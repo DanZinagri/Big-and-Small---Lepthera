@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Sanguine spores (Mycoth ability): a small lesion on a lung (torso if none), 1.5 hp (at most 30%
+       of the part). Low damage and pain, but bleeds 0.5 per severity (a cut is 0.06), so about 0.75 =
+       75% of a full blood supply per day, for 4~6 hours (Lepthera.Hediff_SporeLesion stops the bleed
+       when the spores die off): roughly 15% blood per hit. A normal injury otherwise: tendable (tending
+       stops the bleed), can get infected, heals like a cut. Recasting on an untended lesion merges into
+       it (deeper, timer restarts). No GetsPermanent comp, so no lung scars. -->
+  <HediffDef ParentName="InjuryBase">
+    <defName>Lepthera_SporeLesion</defName>
+    <label>spore lesion</label>
+    <labelNoun>a spore lesion</labelNoun>
+    <description>Blood-red spores have taken root in the tissue, tearing it open as they grow. It bleeds heavily for a few hours until the spores die off, or until it is tended.</description>
+    <hediffClass>Lepthera.Hediff_SporeLesion</hediffClass>
+    <displayWound>false</displayWound>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.01</painPerSeverity>
+      <bleedRate>0.5</bleedRate>
+      <canMerge>true</canMerge>
+      <destroyedLabel>Rotted away</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+
+  <!-- Red spore cloud drawn over the rot stink the ability releases (gas clouds can't be recoloured
+       per ability: one colour per gas type for the whole map). A burst on cast, then a thin haze for
+       about 4 seconds. Radius matches the bleed radius (3.5). -->
+  <EffecterDef>
+    <defName>Lepthera_SanguineSporeBurst</defName>
+    <maintainTicks>240</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>AirPuff</fleckDef>
+        <burstCount>28~34</burstCount>
+        <positionRadius>3.2</positionRadius>
+        <scale>1.6~2.6</scale>
+        <speed>0.2~0.6</speed>
+        <rotation>0~360</rotation>
+        <color>(170, 25, 30, 170)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>DustPuff</fleckDef>
+        <burstCount>16~20</burstCount>
+        <positionRadius>2.6</positionRadius>
+        <scale>1.2~2.0</scale>
+        <speed>0.3~0.8</speed>
+        <color>(120, 15, 20, 150)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>AirPuff</fleckDef>
+        <chancePerTick>0.35</chancePerTick>
+        <positionRadius>3.2</positionRadius>
+        <scale>1.4~2.2</scale>
+        <speed>0.1~0.3</speed>
+        <color>(150, 20, 25, 110)</color>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+
+</Defs>

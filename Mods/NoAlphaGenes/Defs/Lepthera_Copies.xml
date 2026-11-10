@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Copy of Alpha Genes' AG_VenomFangs without the fang graphic (the fangs sit behind the
+       mandibles). Same fang exclusion tags. Swapped for AG's own gene when Alpha Genes is loaded. -->
+  <GeneDef>
+    <defName>Lepthera_VenomFangs</defName>
+    <label>venom fangs</label>
+    <description>Carriers of this gene have hidden fangs that can be used in melee combat to inject a powerful venom.</description>
+    <iconPath>UI/Icons/Genes/Gene_Bloodfeeder</iconPath>
+    <iconColor>(0.55, 0.85, 0.3)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>Fang</li>
+      <li>Fangs</li>
+      <li>AG_Fangs</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>Lepthera_VenomFangsHediff</hediff>
+            <bodyparts>
+              <li>Jaw</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Copy of Alpha Genes' AG_VenomFangs hediff (vanilla toxic bite). -->
+  <HediffDef>
+    <defName>Lepthera_VenomFangsHediff</defName>
+    <label>venom fangs</label>
+    <description>Hidden fangs that can be used in melee combat to inject a powerful venom.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>venom fangs</label>
+            <capacities>
+              <li>ToxicBite</li>
+            </capacities>
+            <power>26</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

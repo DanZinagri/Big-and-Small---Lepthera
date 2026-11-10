@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Big and Small - Genes & More loaded: use its large frame instead of our copy.
+       Keyed on the GeneDef existing, not on the mod's name. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="BS_LargeFrame"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="Lepthera_Aurelith"]/genes/li[text()="Lepthera_LargeFrame"]</xpath>
+      <value>
+        <li>BS_LargeFrame</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

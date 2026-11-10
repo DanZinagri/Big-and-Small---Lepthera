@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The Lepthera race gene. Owns the race swap, so the xenotypes are free to use any wing gene.
+       BS_BodySwitch (B&S Framework) adds the BS_BodySwap exclusion tag: no other race-swap gene
+       can be active alongside it. ExtraArms excludes B&S's own four-arms gene, since the race
+       already has four. Stats: +10% global work speed, +30% manipulation, -1 metabolic
+       (B&S's own four-arms gene is +40% / +10% / -3). -->
+  <GeneDef ParentName="BS_BodySwitch">
+    <defName>Lepthera_Physiology</defName>
+    <label>lepthera physiology</label>
+    <description>Carriers of this gene have an insect-like body: four arms, compound eyes, a segmented abdomen and insect flesh. Their gut can digest woven fibres, so they can eat cloth and wool.</description>
+    <iconPath>BS_Traits/FourArms</iconPath>
+    <customEffectDescriptions>
+      <li>Switches the character's "Race" to lepthera: four arms, an abdomen and insect flesh.</li>
+      <li>Can eat cloth and wool.</li>
+    </customEffectDescriptions>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>100</displayOrderInCategory>
+    <statOffsets>
+      <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+    </statOffsets>
+    <capMods>
+      <li>
+        <capacity>Manipulation</capacity>
+        <offset>0.30</offset>
+      </li>
+    </capMods>
+    <exclusionTags>
+      <li>ExtraArms</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <thingDefSwap>Lepthera</thingDefSwap>
+        <forceThingDefSwap>false</forceThingDefSwap>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Silk glands: B&S Framework's ProductionGene, at the rate of the cloth spider abdomen in
+       Big and Small - Spider Xenotypes (20 cloth / 2 days, scaled by body size).
+       Patches/Lepthera_SilkGlands_MO.xml swaps the product to Medieval Overhaul silk at that
+       mod's silk rate (30 / 4 days) when MO is loaded. Placeholder icon: OAB's moth fluff. -->
+  <GeneDef>
+    <defName>Lepthera_SilkGlands</defName>
+    <label>silk glands</label>
+    <description>Carriers of this gene have glands in their abdomen that steadily spin fine fibre, which can be gathered and used as cloth.\n\nProduces 20 cloth every 2 days, modified by body size.</description>
+    <iconPath>UI/Icons/Genes/BugParts_Mothfluff</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <geneClass>BigAndSmall.ProductionGene</geneClass>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.ProductionGeneSettings">
+        <product>Cloth</product>
+        <frequencyInDays>2</frequencyInDays>
+        <baseAmount>20</baseAmount>
+        <progressName>Producing cloth</progressName>
+        <saveKey>Lepthera_SilkProduction</saveKey>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Copy of Oops all BUGPARTS' BugParts_Abdomen_Beebut (same art and placement), tinted
+       entirely in hair colour instead of skin + hair. A plain vanilla node with colorType Hair
+       needs no mask; OAB's two-colour PawnRenderNode_Complex is avoided on purpose (its graphic
+       cache keys only on the colours and shader, not the texture path).
+       GeneTailBase (OAB) supplies the Bug_BodyAttachment/Tail/taur/spiderlegs exclusion tags, so it
+       replaces the bee abdomen and any other abdomen or tail gene. -->
+  <GeneDef ParentName="GeneTailBase">
+    <defName>Lepthera_MothAbdomen</defName>
+    <label>moth abdomen</label>
+    <description>Carriers of this gene grow a soft, segmented moth abdomen in the colour of their hair.</description>
+    <iconPath>Genes/Icons/Gene_beeab</iconPath>
+    <displayCategory>Bug_BodyAttachment</displayCategory>
+    <displayOrderInCategory>1002</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <selectionWeight>0</selectionWeight>
+    <renderNodeProperties Inherit="False">
+      <li>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/BeeAbdomen/Beetail</texPath>
+        <drawSize>(1.25,1.25)</drawSize>
+        <colorType>Hair</colorType>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <dataNorth>
+            <offset>(0.0, 0.2, -0.0)</offset>
+          </dataNorth>
+          <dataSouth>
+            <offset>(-0.0, -0.1, -0.0)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.0, -0.1, -0.0)</offset>
+          </dataEast>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Two-tone moth abdomen (Lunaveth, Noctyra): same OAB bee-abdomen art and placement as
+       Lepthera_MothAbdomen, drawn by B&S's Ultimate node, which picks up OAB's own "_<rot>m" masks
+       next to the art. Mask red = the lighter bands -> hair colour (colorA); mask green = the darker
+       bands -> skin colour (colorB). Measured: green bands average ~110-123 grey, red ~150-170. -->
+  <GeneDef ParentName="GeneTailBase">
+    <defName>Lepthera_MothAbdomen_TwoTone</defName>
+    <label>two-tone moth abdomen</label>
+    <description>Carriers of this gene grow a soft, segmented moth abdomen, banded in the colours of their hair and skin.</description>
+    <iconPath>Genes/Icons/Gene_beeab</iconPath>
+    <iconColor>(0.7, 0.7, 0.85)</iconColor>
+    <displayCategory>Bug_BodyAttachment</displayCategory>
+    <displayOrderInCategory>1003</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <selectionWeight>0</selectionWeight>
+    <renderNodeProperties Inherit="False">
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Lepthera abdomen</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <parentTagDef>Body</parentTagDef>
+        <drawSize>(1.25,1.25)</drawSize>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <dataNorth>
+            <offset>(0.0, 0.2, -0.0)</offset>
+          </dataNorth>
+          <dataSouth>
+            <offset>(-0.0, -0.1, -0.0)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.0, -0.1, -0.0)</offset>
+          </dataEast>
+        </drawData>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>Things/Pawn/Humanlike/BodyAttachments/BeeAbdomen/Beetail</li>
+          </texturePaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <skinColor>true</skinColor>
+          </colorB>
+          <colorC>
+            <color>(1, 1, 1)</color>
+          </colorC>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Two-tone copy of Oops all BUGPARTS' Fluffbug_body: same art (OAB's own BP_Fuzzy_Body
+       textures, picked per body type), but drawn by B&S's Ultimate node with our masks
+       (Textures/Lepthera/FluffyBody, made by Source/Tools/slice_fur_masks.py), so the fur takes
+       hair colour (mask red = colorA) and the chitin skin colour (mask green = colorB).
+       OAB's original draws everything in skin colour. Keeps OAB's FurDef so story.furDef is set:
+       PawnRenderNodeWorker_Fur only draws when it is, and Sized Apparel lifts its parts above fur.
+       The FurDef is noGraphic, so it draws nothing on its own. "Fur" tag excludes other fur genes. -->
+  <GeneDef>
+    <defName>Lepthera_FluffyBody</defName>
+    <label>two-tone fluffy insectoid body</label>
+    <labelShortAdj>fluffybug</labelShortAdj>
+    <description>Carriers of this gene have a chitinous body with patches of soft fluff over their chest and hips. The fluff grows in the colour of their hair. Pollen tends to get all over it while gardening.</description>
+    <iconPath>UI/Icons/Genes/Gene_Exoskin</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayCategory>Bug_HeadAttachment</displayCategory>
+    <displayOrderInCategory>401</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <fur>Fluffybug_Body</fur>
+    <missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
+    <exclusionTags>
+      <li>Fur</li>
+    </exclusionTags>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <debugLabel>Fur</debugLabel>
+        <nodeClass>BigAndSmall.PawnRenderNode_Ultimate</nodeClass>
+        <workerClass>PawnRenderNodeWorker_Fur</workerClass>
+        <parentTagDef>Body</parentTagDef>
+        <baseLayer>5</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <conditionalGraphics>
+          <texturePaths>
+            <Body_Male>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_Body_Male</Body_Male>
+            <Body_Female>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_Body_Female</Body_Female>
+            <Body_Thin>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_Body_Thin</Body_Thin>
+            <Body_Fat>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_Body_Fat</Body_Fat>
+            <Body_Hulk>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_Body_Hulk</Body_Hulk>
+            <Body_Child>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_BodyChild</Body_Child>
+            <Body_Baby>Things/Pawn/Humanlike/Bodies/BP_Fuzzy_Body/Fuzzy_BodyChild</Body_Baby>
+          </texturePaths>
+          <maskPaths>
+            <Body_Male>Lepthera/FluffyBody/FluffMask_Male</Body_Male>
+            <Body_Female>Lepthera/FluffyBody/FluffMask_Female</Body_Female>
+            <Body_Thin>Lepthera/FluffyBody/FluffMask_Thin</Body_Thin>
+            <Body_Fat>Lepthera/FluffyBody/FluffMask_Fat</Body_Fat>
+            <Body_Hulk>Lepthera/FluffyBody/FluffMask_Hulk</Body_Hulk>
+            <Body_Child>Lepthera/FluffyBody/FluffMask_Child</Body_Child>
+            <Body_Baby>Lepthera/FluffyBody/FluffMask_Child</Body_Baby>
+          </maskPaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <skinColor>true</skinColor>
+          </colorB>
+        </conditionalGraphics>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Visual copy of Oops all BUGPARTS' Lunarmoth_Antennae with a hearing bonus.
+       BP_GeneAntennaBase supplies the antenna exclusion tags, so it replaces any other antennae. -->
+  <GeneDef ParentName="BP_GeneAntennaBase">
+    <defName>Lepthera_SensitiveAntennae</defName>
+    <label>sensitive antennae</label>
+    <description>Carriers of this gene have two long, feathered antennae finely tuned to vibrations in the air, which sharpens their hearing.</description>
+    <iconPath>UI/Icons/Genes/Gene_MothAntenna</iconPath>
+    <biostatMet>-1</biostatMet>
+    <capMods>
+      <li>
+        <capacity>Hearing</capacity>
+        <offset>0.20</offset>
+      </li>
+    </capMods>
+    <renderNodeProperties Inherit="False">
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <colorType>Hair</colorType>
+        <texPaths>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Antenna/mothantennea</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Antenna/mothantennea2</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Antenna/mothantennea3</li>
+        </texPaths>
+        <drawData>
+          <defaultData>
+            <layer>80</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>10</layer>
+          </dataNorth>
+        </drawData>
+        <parentTagDef>Head</parentTagDef>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+</Defs>

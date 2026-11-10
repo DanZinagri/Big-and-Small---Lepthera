@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Loads only with Alpha Genes (loadFolders.xml): Mycoth rely on several of its genes. -->
+  <XenotypeDef>
+    <defName>Lepthera_Mycoth</defName>
+    <label>mycoth</label>
+    <description>Mycoth are Lepthera whose entire xenotype long ago fused with that of a vampiric fungi. They feed on blood and corpses, finding themselves at home in the miasma. They cannot reproduce, instead spreading their body-altering fungi into the dead.</description>
+    <descriptionShort>Lepthera with a strange fungal symbiosis</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <!-- This mod / Oops all BUGPARTS 2 / Big and Small Framework (all required) -->
+      <li>Lepthera_Physiology</li>
+      <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_MothAbdomen</li>
+      <li>Lepthera_FluffyBody</li>
+      <li>Lepthera_Wings_Fungal</li>
+      <li>Moth_floof_HairClr</li>
+      <li>Body_FemaleOnly</li>
+      <!-- Biotech -->
+      <li>NakedSpeed</li>
+      <li>Instability_Mild</li>
+      <li>Body_Standard</li>
+      <li>MinTemp_SmallDecrease</li>
+      <li>MaxTemp_SmallDecrease</li>
+      <li>MoveSpeed_Slow</li>
+      <li>Hemogenic</li>
+      <li>Bloodfeeder</li>
+      <li>HemogenDrain</li>
+      <li>StrongStomach</li>
+      <li>RobustDigestion</li>
+      <li>Beauty_Ugly</li>
+      <li>AptitudePoor_Artistic</li>
+      <li>AptitudePoor_Social</li>
+      <li>AptitudePoor_Intellectual</li>
+      <li>Sterile</li>
+      <li>Aggression_DeadCalm</li>
+      <li>FireWeakness</li>
+      <li>WoundHealing_SuperFast</li>
+      <li>Immunity_Strong</li>
+      <li>Mood_Pessimist</li>
+      <!-- This mod. Mods/AlphaGenes/Patches/Lepthera_Mycoth_Swaps.xml swaps rotblood and fungal flesh for
+           VRE - Fungoid's own when it is loaded (our copies then don't load at all). -->
+      <li>Lepthera_RotBlood</li>
+      <li>Lepthera_FungalFlesh</li>
+      <li>Lepthera_FungalResurrection</li>
+      <li>Lepthera_SanguineSpores</li>
+      <!-- Alpha Genes (required for Mycoth) -->
+      <li>AG_PukeBile</li>
+      <li>AG_LungRotStrength</li>
+      <li>AG_Painless</li>
+      <li>AG_CorpseFeeding</li>
+      <li>AG_ChitinLeather</li>
+      <li>AG_LimbRegeneration</li>
+      <li>AG_Filthy</li>
+      <li>AG_HardBones</li>
+      <li>AG_SlowerAging</li>
+      <li>AG_SurvivalInstinct_Low</li>
+      <!-- cosmetics: copies of Faction - Elves' ash-brown hair and dark purple skin, swapped for the
+           originals when it is loaded (Lepthera_Mycoth_Swaps.xml) -->
+      <li>Lepthera_Hair_AshBrown</li>
+      <li>Lepthera_Skin_DarkPurple</li>
+      <!-- Optional. Alpha Genes' gene infection immunity only exists with VRE - Fungoid. -->
+      <li MayRequire="vanillaracesexpanded.fungoid">AG_GeneInfectionImmunity</li>
+      <li MayRequire="vanillaracesexpanded.sanguophage">VRE_ViscuousGoo</li>
+      <li MayRequire="vanillaracesexpanded.sanguophage">VRE_CorpseFeeder</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>

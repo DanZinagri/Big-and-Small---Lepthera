@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===== Cindrathi ===== -->
+
+  <!-- Flame melee attack on every hand. B&S applyPartHediff takes one hand per list entry,
+       so four entries cover the lepthera's four arms (extra entries do nothing on two-armed pawns). -->
+  <GeneDef>
+    <defName>Lepthera_SearingGrasp</defName>
+    <label>searing grasp</label>
+    <description>Carriers of this gene have hands that run hot enough to scorch whatever they grab. Their unarmed strikes burn, and can set the target alight.</description>
+    <iconPath>UI/Icons/Genes/Gene_StrongMeleeDamage</iconPath>
+    <iconColor>(1.0, 0.55, 0.2)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>Unarmed attacks deal flame damage with each hand.</li>
+    </customEffectDescriptions>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>Lepthera_SearingGraspHediff</hediff>
+            <bodyparts>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Blood type via VEF. Same exclusion tags as Alpha Genes' blood genes, so it replaces
+       AG_InsectBlood and any other blood-type gene. -->
+  <GeneDef>
+    <defName>Lepthera_EmberBlood</defName>
+    <label>ember blood</label>
+    <description>Carriers of this gene have hot, smouldering blood that glows like embers. When it spills it sometimes flares into a small fire.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <iconColor>(1.0, 0.5, 0.15)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>Bleeds ember blood: each new splash has a 20% chance to start a small fire.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>AG_BloodType</li>
+      <li>BloodType</li>
+      <li>Blood</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <customBloodThingDef>Lepthera_Filth_EmberBlood</customBloodThingDef>
+        <customBloodEffect>Damage_HitMechanoid</customBloodEffect>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Vomit type via VEF. Same exclusion tags as Alpha Genes' vomit genes. -->
+  <GeneDef>
+    <defName>Lepthera_FireVomit</defName>
+    <label>fire vomit</label>
+    <description>Carriers of this gene vomit a searing, oily bile that bursts into flame as soon as it hits the ground.</description>
+    <iconPath>UI/Icons/Genes/Gene_Firespew</iconPath>
+    <iconColor>(1.0, 0.7, 0.35)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>Vomit starts a small fire where it lands.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>AG_VomitType</li>
+      <li>VomitType</li>
+      <li>Vomit</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <customVomitThingDef>Lepthera_Filth_FireVomit</customVomitThingDef>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- ===== Aurelith ===== -->
+  <!-- Large frame copy: Mods/NoGenesAndMore (loads only without Genes & More). -->
+
+  <!-- Version of Alpha Genes' AG_Filthy (double filth rate) that sheds moth dust, which also
+       makes the carrier harder to hit in melee. Same AG_Filth exclusion tag.
+       VEF hediffToWholeBody adds Lepthera_DefensiveDustHediff (Defs/HediffDefs/Lepthera_Dust.xml),
+       a hidden hediff whose effecter puffs pale dust around the pawn, like Alpha Genes' smoke
+       producer looks, but purely visual (no smoke gas, so it doesn't block shots). -->
+  <GeneDef>
+    <defName>Lepthera_DefensiveDust</defName>
+    <label>defensive dust</label>
+    <description>Carriers of this gene constantly shed a fine, powdery scale dust. It gets everywhere, but a cloud of it makes them very hard to land a blow on.</description>
+    <iconPath>UI/Icons/Genes/BugParts_Mothfluff</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>0</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>AG_Filth</li>
+    </exclusionTags>
+    <statFactors>
+      <FilthRate>2</FilthRate>
+    </statFactors>
+    <statOffsets>
+      <MeleeDodgeChance>20</MeleeDodgeChance>
+    </statOffsets>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <hediffToWholeBody>Lepthera_DefensiveDustHediff</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- ===== Noctyra ===== -->
+
+
+
+  <!-- Version of VRE - Sanguophage's toxic cloud gene: no VRE, no hemogen prerequisite. -->
+  <GeneDef>
+    <defName>Lepthera_ToxicCloud</defName>
+    <label>toxic cloud</label>
+    <labelShortAdj>toxspewer</labelShortAdj>
+    <description>Carriers of this gene can exhale a thick cloud of tox gas from special reservoirs in their lungs. Tox gas is deadly to almost every creature.</description>
+    <iconPath>Things/Item/Equipment/WeaponRanged/ToxGrenades</iconPath>
+    <displayCategory>Ability</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <abilities>
+      <li>Lepthera_ToxicCloud</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>Lepthera_ToxicCloud</AbilityDef>
+    </descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- Tox blood (Noctyra): blood that fumes tox gas as it spills. -->
+  <GeneDef>
+    <defName>Lepthera_ToxBlood</defName>
+    <label>tox blood</label>
+    <description>Carriers of this gene have thick green blood that fumes with tox gas as it spills. Anyone near a bleeding carrier will be breathing it.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hemogenic</iconPath>
+    <iconColor>(0.45, 0.75, 0.15)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>Bleeding releases tox gas where the blood lands.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>AG_BloodType</li>
+      <li>BloodType</li>
+      <li>Blood</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <customBloodThingDef>Lepthera_Filth_ToxBlood</customBloodThingDef>
+        <customBloodEffect>Damage_HitInsect</customBloodEffect>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

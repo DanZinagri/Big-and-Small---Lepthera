@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- With Medieval Overhaul loaded, silk glands produce MO silk instead of cloth,
+       at the rate Big and Small - Spider Xenotypes uses for its silk abdomen (30 every 4 days). -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Medieval Overhaul</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/GeneDef[defName="Lepthera_SilkGlands"]/description</xpath>
+          <value>
+            <description>Carriers of this gene have glands in their abdomen that steadily spin fine silk, which can be gathered and woven.\n\nProduces 30 silk every 4 days, modified by body size.</description>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/GeneDef[defName="Lepthera_SilkGlands"]/modExtensions/li[@Class="BigAndSmall.ProductionGeneSettings"]</xpath>
+          <value>
+            <li Class="BigAndSmall.ProductionGeneSettings">
+              <product>DankPyon_Silk</product>
+              <frequencyInDays>4</frequencyInDays>
+              <baseAmount>30</baseAmount>
+              <progressName>Producing silk</progressName>
+              <saveKey>Lepthera_SilkProduction</saveKey>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>
