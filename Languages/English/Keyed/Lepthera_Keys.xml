@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Added to the Diet entry for FoodTypeFlags bit 8192 (Source/Lepthera/ClothDiet.cs). -->
+  <Lepthera_FoodTypeFlags_Cloth>cloth and wool</Lepthera_FoodTypeFlags_Cloth>
+
+</LanguageData>
