@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Without Alpha Genes: our copy of its venom fangs.
+       The copies are defined in this same folder, so a xenotype only ever lists them when they
+       exist. With the original mod active, the xenotype lists its gene instead (MayRequire). -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes</xpath>
+    <value>
+      <li>Lepthera_VenomFangs</li>
+    </value>
+  </Operation>
+
+</Patch>

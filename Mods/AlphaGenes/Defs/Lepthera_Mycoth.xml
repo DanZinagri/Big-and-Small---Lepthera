@@ -41,10 +41,8 @@
       <li>WoundHealing_SuperFast</li>
       <li>Immunity_Strong</li>
       <li>Mood_Pessimist</li>
-      <!-- This mod. Mods/AlphaGenes/Patches/Lepthera_Mycoth_Swaps.xml swaps rotblood and fungal flesh for
-           VRE - Fungoid's own when it is loaded (our copies then don't load at all). -->
-      <li>Lepthera_RotBlood</li>
-      <li>Lepthera_FungalFlesh</li>
+      <li MayRequire="vanillaracesexpanded.fungoid">VRE_RotBlood</li> <!-- else our copy, added by Mods/AlphaGenes_NoFungoid -->
+      <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalFlesh</li> <!-- else our copy, added by Mods/AlphaGenes_NoFungoid -->
       <li>Lepthera_FungalResurrection</li>
       <li>Lepthera_SanguineSpores</li>
       <!-- Alpha Genes (required for Mycoth) -->
@@ -58,10 +56,9 @@
       <li>AG_HardBones</li>
       <li>AG_SlowerAging</li>
       <li>AG_SurvivalInstinct_Low</li>
-      <!-- cosmetics: copies of Faction - Elves' ash-brown hair and dark purple skin, swapped for the
-           originals when it is loaded (Lepthera_Mycoth_Swaps.xml) -->
-      <li>Lepthera_Hair_AshBrown</li>
-      <li>Lepthera_Skin_DarkPurple</li>
+      <!-- cosmetics: Faction - Elves' ash-brown hair and dark purple skin (our copies without it) -->
+      <li MayRequire="ICC.FOV.ELVES">Hair_AshBrown</li> <!-- else our copy, added by Mods/AlphaGenes_NoFactionElves -->
+      <li MayRequire="ICC.FOV.ELVES">Skin_DarkPurple</li> <!-- else our copy, added by Mods/AlphaGenes_NoFactionElves -->
       <!-- Optional. Alpha Genes' gene infection immunity only exists with VRE - Fungoid. -->
       <li MayRequire="vanillaracesexpanded.fungoid">AG_GeneInfectionImmunity</li>
       <li MayRequire="vanillaracesexpanded.sanguophage">VRE_ViscuousGoo</li>

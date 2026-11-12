@@ -2,8 +2,8 @@
 <Defs>
 
   <!-- Copies of Faction - Elves' (ICC.FOV.ELVES) Skin_DarkPurple and Hair_AshBrown for Mycoth.
-       Loaded only when Faction - Elves isn't active (loadFolders.xml); with it,
-       Mods/AlphaGenes/Patches/Lepthera_Mycoth_Swaps.xml points Mycoth at the originals. -->
+       Loaded only with Alpha Genes (Mycoth) and without Faction - Elves (loadFolders.xml); this
+       folder's patch puts them on Mycoth. With Elves, Mycoth list the originals (MayRequire). -->
   <GeneDef ParentName="GeneSkinColorOverride">
     <defName>Lepthera_Skin_DarkPurple</defName>
     <label>dark purple skin</label>

@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Copy of Alpha Genes' AG_VenomFangs without the fang graphic (the fangs sit behind the
-       mandibles). Same fang exclusion tags. Swapped for AG's own gene when Alpha Genes is loaded. -->
+       mandibles). Same fang exclusion tags. Only loads without Alpha Genes; this folder's Patches/Lepthera_AddCopies.xml puts it on Noctyra. -->
   <GeneDef>
     <defName>Lepthera_VenomFangs</defName>
     <label>venom fangs</label>

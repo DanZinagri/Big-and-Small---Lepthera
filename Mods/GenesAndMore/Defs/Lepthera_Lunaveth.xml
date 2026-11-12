@@ -3,7 +3,7 @@
 
   <!-- Lunaveth lean on Big and Small - Genes & More's genes, so this folder only loads when G&M is
        active (loadFolders.xml). Patches/Lepthera_Lunaveth_Swaps.xml (same folder) handles the
-       Alpha Genes / VRE - Lycanthrope swaps. -->
+       VRE - Lycanthrope swap; our acid fangs copy is added by Mods/GenesAndMore_NoAlphaGenes. -->
   <XenotypeDef>
     <defName>Lepthera_Lunaveth</defName>
     <label>lunaveth</label>
@@ -19,7 +19,7 @@
       <li>Lepthera_MothAbdomen_TwoTone</li>
       <li>Lepthera_FluffyBody</li>
       <!-- Swapped for Alpha Genes' AG_AcidFangs when it is loaded (our copy then doesn't load) -->
-      <li>Lepthera_AcidFangs</li>
+      <li MayRequire="sarg.alphagenes">AG_AcidFangs</li> <!-- else our copy, added by Mods/GenesAndMore_NoAlphaGenes -->
       <!-- Oops all BUGPARTS 2 -->
       <li>Lepthera_Wings_Lunar</li>
       <li>Moth_floof_HairClr</li>

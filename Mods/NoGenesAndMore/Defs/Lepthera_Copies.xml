@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Copy of Big and Small - Genes & More's LoS_VenomTalons (same stats, vanilla toxic scratch).
-       Patches/Lepthera_Noctyra_Swaps.xml swaps in G&M's own gene when G&M is loaded. -->
+       Only loads without G&M; this folder's Patches/Lepthera_AddCopies.xml puts it on Noctyra. -->
   <GeneDef>
     <defName>Lepthera_VenomTalons</defName>
     <label>venom talons</label>
@@ -73,7 +73,7 @@
   </HediffDef>
 
   <!-- Copy of Big and Small - Genes & More's BS_LargeFrame (same stats; the SM_ stats are
-       B&S Framework's). Patches/Lepthera_Aurelith_Swaps.xml swaps in G&M's own gene when loaded.
+       B&S Framework's). Added to Aurelith by this folder's Patches/Lepthera_AddCopies.xml.
        Same "BodySize" exclusion tag as G&M's frames. -->
   <GeneDef>
     <defName>Lepthera_LargeFrame</defName>

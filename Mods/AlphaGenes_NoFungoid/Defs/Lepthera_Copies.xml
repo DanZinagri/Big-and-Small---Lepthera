@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Loads only without VRE - Fungoid (loadFolders.xml). With Fungoid, Mycoth get Fungoid's own
-       VRE_RotBlood and VRE_FungalFlesh instead (Mods/AlphaGenes/Patches/Lepthera_Mycoth_Swaps.xml). -->
+  <!-- Loads only with Alpha Genes (Mycoth) and without VRE - Fungoid (loadFolders.xml); this folder's
+       patch puts these on Mycoth. With Fungoid, Mycoth list Fungoid's own VRE_RotBlood and
+       VRE_FungalFlesh instead (MayRequire in Lepthera_Mycoth.xml). -->
 
   <!-- Copy of VRE_RotBlood: same stats; the blood lets out rot stink where it lands (Fungoid
        spawns 2000 rot stink per new pile, so does this). No custom wound textures. -->

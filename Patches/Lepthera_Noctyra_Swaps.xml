@@ -15,26 +15,4 @@
     </match>
   </Operation>
 
-  <!-- Alpha Genes loaded: use its venom fangs (with the fang graphic) instead of ours. -->
-  <Operation Class="PatchOperationConditional">
-    <xpath>Defs/GeneDef[defName="AG_VenomFangs"]</xpath>
-    <match Class="PatchOperationReplace">
-      <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes/li[text()="Lepthera_VenomFangs"]</xpath>
-      <value>
-        <li>AG_VenomFangs</li>
-      </value>
-    </match>
-  </Operation>
-
-  <!-- Big and Small - Genes & More loaded: use its venom talons instead of ours. -->
-  <Operation Class="PatchOperationConditional">
-    <xpath>Defs/GeneDef[defName="LoS_VenomTalons"]</xpath>
-    <match Class="PatchOperationReplace">
-      <xpath>Defs/XenotypeDef[defName="Lepthera_Noctyra"]/genes/li[text()="Lepthera_VenomTalons"]</xpath>
-      <value>
-        <li>LoS_VenomTalons</li>
-      </value>
-    </match>
-  </Operation>
-
 </Patch>

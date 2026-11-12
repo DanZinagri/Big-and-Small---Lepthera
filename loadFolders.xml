@@ -3,10 +3,13 @@
 <loadFolders>
 	<!-- Root: Defs, Patches and Textures for both versions. Version folders: Lepthera.dll only.
 	     Mods/No*: our copies of other mods' genes, loaded only when that mod is NOT active
-	     (the xenotype swap patches point at the original instead).
+	     (the xenotype lists the original with MayRequire instead).
 	     Mods/GenesAndMore: Lunaveth, which rely on Genes & More.
 	     Mods/AlphaGenes: Mycoth, which rely on Alpha Genes.
-	     Mods/NoFactionElves: Mycoth's skin and hair copies (Faction - Elves is 1.6 only).
+	     Mods/AlphaGenes_NoFungoid, Mods/AlphaGenes_NoFactionElves: Mycoth's copies, so they also
+	     need Alpha Genes (Faction - Elves is 1.6 only).
+	     Every copy folder patches its own copies onto the xenotype; the xenotype XML only lists the
+	     original mod's gene with MayRequire. So a copy is referenced only when it is loaded.
 	     Mods/Atavism*: Atavism Libraries births-as-mother's-xenotype defs (Lunaveth / Mycoth
 	     ones also need the mod that defines that xenotype). -->
 	<v1.6>
@@ -17,8 +20,8 @@
 		<li IfModActive="RedMattis.BigSmall.Core">Mods/GenesAndMore</li>
 		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">Mods/GenesAndMore_NoAlphaGenes</li>
 		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
-		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
-		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="vanillaracesexpanded.fungoid">Mods/AlphaGenes_NoFungoid</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="ICC.FOV.ELVES">Mods/AlphaGenes_NoFactionElves</li>
 		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
@@ -31,8 +34,8 @@
 		<li IfModActive="RedMattis.BigSmall.Core">Mods/GenesAndMore</li>
 		<li IfModActive="RedMattis.BigSmall.Core" IfModNotActive="sarg.alphagenes">Mods/GenesAndMore_NoAlphaGenes</li>
 		<li IfModActive="sarg.alphagenes">Mods/AlphaGenes</li>
-		<li IfModNotActive="vanillaracesexpanded.fungoid">Mods/NoFungoid</li>
-		<li IfModNotActive="ICC.FOV.ELVES">Mods/NoFactionElves</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="vanillaracesexpanded.fungoid">Mods/AlphaGenes_NoFungoid</li>
+		<li IfModActive="sarg.alphagenes" IfModNotActive="ICC.FOV.ELVES">Mods/AlphaGenes_NoFactionElves</li>
 		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>

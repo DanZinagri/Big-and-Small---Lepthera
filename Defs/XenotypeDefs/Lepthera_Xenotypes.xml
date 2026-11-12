@@ -41,8 +41,7 @@
       <li>PsychicAbility_Enhanced</li>
       <li>Immunity_Strong</li>
       <li>Superclotting</li>
-      <!-- This mod: Patches/Lepthera_Aurelith_Swaps.xml swaps in G&M's BS_LargeFrame when loaded -->
-      <li>Lepthera_LargeFrame</li>
+      <li MayRequire="redmattis.bigsmall.core">BS_LargeFrame</li> <!-- else our copy, added by Mods/NoGenesAndMore -->
       <li>Lepthera_DefensiveDust</li>
       <!-- Silk glands: swapped to Medieval Overhaul silk by Patches/Lepthera_SilkGlands_MO.xml -->
       <li>Lepthera_SilkGlands</li>
@@ -92,8 +91,8 @@
            Alpha Genes; our venom talons/fangs become G&M's / Alpha Genes' own when those are loaded -->
       <li>ToxResist_Total</li>
       <li>FireWeakness</li>
-      <li>Lepthera_VenomTalons</li>
-      <li>Lepthera_VenomFangs</li>
+      <li MayRequire="redmattis.bigsmall.core">LoS_VenomTalons</li> <!-- else our copy, added by Mods/NoGenesAndMore -->
+      <li MayRequire="sarg.alphagenes">AG_VenomFangs</li> <!-- else our copy, added by Mods/NoAlphaGenes -->
       <li>Lepthera_ToxicCloud</li>
       <!-- cosmetics: one hair colour is picked per pawn -->
       <li>Hair_SnowWhite</li>

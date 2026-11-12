@@ -4,17 +4,6 @@
   <!-- Loaded only with Genes & More (Lunaveth live in this folder). Swaps are keyed on the other
        mod's GeneDef existing, not on the mod's name. -->
 
-  <!-- Alpha Genes loaded: its acid fangs replace our copy (which then isn't loaded at all). -->
-  <Operation Class="PatchOperationConditional">
-    <xpath>Defs/GeneDef[defName="AG_AcidFangs"]</xpath>
-    <match Class="PatchOperationReplace">
-      <xpath>Defs/XenotypeDef[defName="Lepthera_Lunaveth"]/genes/li[text()="Lepthera_AcidFangs"]</xpath>
-      <value>
-        <li>AG_AcidFangs</li>
-      </value>
-    </match>
-  </Operation>
-
   <!-- VRE - Lycanthrope loaded: nocturnal instead of Alpha Genes' night owl, even without Alpha
        Genes. The AG_NightOwl li is always in the XML here (MayRequire is only applied when the
        def loads, after patching), so one replace covers both cases; the new li has no MayRequire.

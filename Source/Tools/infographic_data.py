@@ -115,6 +115,26 @@ for f in glob.glob(os.path.join(MOD, "Defs", "**", "*.xml"), recursive=True) + g
         xenos[x.findtext("defName")] = {"label": x.findtext("label"), "description": x.findtext("description"),
                                        "descriptionShort": x.findtext("descriptionShort"), "genes": genes}
 
+# Mods/* folders that load with the active mod list (loadFolders.xml, v1.7)
+def _ids(v):
+    return [p.strip().lower() for p in v.split(",")] if v else []
+loaded = set()
+for li in ET.parse(os.path.join(MOD, "loadFolders.xml")).getroot().find("v1.7"):
+    any_of, all_of, none_of = _ids(li.get("IfModActive")), _ids(li.get("IfModActiveAll")), _ids(li.get("IfModNotActive"))
+    if (not any_of or any(p in aset for p in any_of)) and all(p in aset for p in all_of) and not any(p in aset for p in none_of):
+        loaded.add(os.path.normpath(li.text.strip()))
+
+# copy folders: a plain top-level PatchOperationAdd onto a xenotype's genes (our copy of a gene from
+# a mod that isn't loaded; the xenotype XML lists the original with MayRequire)
+for f in glob.glob(os.path.join(MOD, "Mods", "*", "Patches", "*.xml")):
+    if os.path.normpath(os.path.relpath(os.path.dirname(os.path.dirname(f)), MOD)) not in loaded:
+        continue
+    for op in ET.parse(f).getroot().findall("Operation"):
+        xm = re.search(r'XenotypeDef\[defName="([^"]+)"\]/genes$', op.findtext("xpath") or "")
+        if op.get("Class") == "PatchOperationAdd" and xm and xm.group(1) in xenos:
+            for li in op.findall("value/li"):
+                xenos[xm.group(1)]["genes"].append([li.text.strip(), False])
+
 # swap patches: PatchOperationConditional on a GeneDef existing -> Replace li / Remove + Add
 patches = glob.glob(os.path.join(MOD, "Patches", "*.xml")) + glob.glob(os.path.join(MOD, "Mods", "*", "Patches", "*.xml"))
 for f in patches:
