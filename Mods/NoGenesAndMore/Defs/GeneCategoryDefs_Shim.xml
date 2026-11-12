@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The framework's abstract BS_BodySwitch gene (parent of Lepthera_Physiology) points at this
+       category, but the category itself ships in Genes & More. Verbatim copy, loaded only when
+       Genes & More is not active (same shim as Harpies / Centaurs). -->
+  <GeneCategoryDef>
+    <defName>BS_BodySwap</defName>
+    <label>Body Transformation</label>
+    <displayPriorityInXenotype>-388</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+</Defs>
