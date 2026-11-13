@@ -11,7 +11,8 @@
 	     Every copy folder patches its own copies onto the xenotype; the xenotype XML only lists the
 	     original mod's gene with MayRequire. So a copy is referenced only when it is loaded.
 	     Mods/Atavism*: Atavism Libraries births-as-mother's-xenotype defs (Lunaveth / Mycoth
-	     ones also need the mod that defines that xenotype). -->
+	     ones also need the mod that defines that xenotype).
+	     Mods/IntimacyGenderWorks: Intimacy - Gender Works reproduction part on Lepthera_Body. -->
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
@@ -25,6 +26,7 @@
 		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
+		<li IfModActive="LovelyDovey.Sex.WithRosaline">Mods/IntimacyGenderWorks</li>
 	</v1.6>
 	<v1.7>
 		<li>/</li>
@@ -39,5 +41,6 @@
 		<li IfModActive="DanZinagri.AtavismLibraries">Mods/Atavism</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
+		<li IfModActive="LovelyDovey.Sex.WithRosaline">Mods/IntimacyGenderWorks</li>
 	</v1.7>
 </loadFolders>

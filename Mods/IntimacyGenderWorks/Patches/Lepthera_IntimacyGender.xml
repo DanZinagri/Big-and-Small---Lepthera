@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Intimacy - Gender Works (LovelyDovey.Sex.WithRosaline) integration; this folder only loads with it.
+	     Gender Works adds its SEX_Reproduction part under the Pelvis of vanilla's Human body (and of the
+	     B&S bodies it knows). Lepthera_Body is our own body, so it needs the same part, added exactly the
+	     way Gender Works adds it to Human. Same addon as Muriden's and the harpies'. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/BodyDef[defName="Lepthera_Body"]/corePart/parts/li[def="Pelvis"]</xpath>
+		<value>
+			<parts>
+				<li>
+					<def>SEX_Reproduction</def>
+					<coverage>0.01</coverage>
+					<depth>Outside</depth>
+					<groups>
+						<li>SEX_Reproduction</li>
+					</groups>
+				</li>
+			</parts>
+		</value>
+	</Operation>
+
+</Patch>
