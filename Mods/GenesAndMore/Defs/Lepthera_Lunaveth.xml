@@ -7,7 +7,7 @@
   <XenotypeDef>
     <defName>Lepthera_Lunaveth</defName>
     <label>lunaveth</label>
-    <description>Lunaveth are a nocturnal breed of Lepthera, their most defining trait is their acidic blood and ability to produce acid to hunt and destroy.</description>
+    <description>Lunaveth are a nocturnal breed of Lepthera, their most defining trait is their acidic blood and ability to produce acid to hunt and destroy. Despite this nocturnal lean they have no aversion to the light. They are considered quite beautiful especially for their species.</description>
     <descriptionShort>Mystical nocturnal Lepthera</descriptionShort>
     <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
     <inheritable>true</inheritable>
@@ -16,6 +16,7 @@
       <!-- This mod -->
       <li>Lepthera_Physiology</li>
       <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_CompoundEyes</li>
       <li>Lepthera_MothAbdomen_TwoTone</li>
       <li>Lepthera_FluffyBody</li>
       <!-- Swapped for Alpha Genes' AG_AcidFangs when it is loaded (our copy then doesn't load) -->
@@ -31,7 +32,6 @@
       <li>Body_Standard</li>
       <li>MinTemp_SmallDecrease</li>
       <li>MaxTemp_SmallDecrease</li>
-      <li>DarkVision</li>
       <li>Nearsighted</li>
       <li>PsychicAbility_Enhanced</li>
       <li>Immunity_Weak</li>

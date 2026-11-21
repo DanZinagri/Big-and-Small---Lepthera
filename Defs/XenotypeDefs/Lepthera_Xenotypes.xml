@@ -4,7 +4,7 @@
   <XenotypeDef>
     <defName>Lepthera_Aurelith</defName>
     <label>aurelith</label>
-    <description>Aurelith are imperial lepthera, a regal breed of moth people known for their larger frame and silk production.</description>
+    <description>Aurelith are imperial lepthera, a regal breed of moth people known for their larger frame and silk production. Their haughty attitude and lean into diplomacy and the arts, but a very poor showing in actual combat.</description>
     <descriptionShort>Regal Silk Producing Lepthera</descriptionShort>
     <!-- Placeholder icon borrowed from Oops all BUGPARTS' Lunarian. -->
     <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
@@ -14,6 +14,7 @@
       <!-- This mod: race swap (four arms, abdomen, insect flesh, cloth diet), antennae, moth abdomen, two-tone fluffy body -->
       <li>Lepthera_Physiology</li>
       <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_CompoundEyes</li>
       <li>Lepthera_MothAbdomen</li>
       <li>Lepthera_FluffyBody</li>
       <!-- Oops all BUGPARTS 2 (required) -->
@@ -63,7 +64,7 @@
   <XenotypeDef>
     <defName>Lepthera_Noctyra</defName>
     <label>noctyra</label>
-    <description>Noctyra are a type of Lepthera known for their use of various poisons to hunt their prey.</description>
+    <description>Noctyra are a type of Lepthera known for their use of poisonous fangs and claws to hunt their prey. They are also capable of storing and releasing toxic fumes and find little issue in toxic environments.</description>
     <descriptionShort>Dark, Predatory Lepthera</descriptionShort>
     <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
     <inheritable>true</inheritable>
@@ -71,6 +72,7 @@
     <genes>
       <li>Lepthera_Physiology</li>
       <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_CompoundEyes</li>
       <li>Lepthera_MothAbdomen_TwoTone</li>
       <li>Lepthera_FluffyBody</li>
       <li>Lepthera_Wings_Midnight</li>
@@ -86,7 +88,6 @@
       <li>AptitudeStrong_Melee</li>
       <li>MeleeDamage_Strong</li>
       <li>Nearsighted</li>
-      <li>DarkVision</li>
       <!-- Patches/Lepthera_Noctyra_Swaps.xml: ToxResist_Total becomes total antitoxic lungs with
            Alpha Genes; our venom talons/fangs become G&M's / Alpha Genes' own when those are loaded -->
       <li>ToxResist_Total</li>
@@ -117,7 +118,7 @@
   <XenotypeDef>
     <defName>Lepthera_Cindrathi</defName>
     <label>cindrathi</label>
-    <description>Cindrathi are Lepthera with a strong connection to fire, at home in the heat whose internals cause them to produce a blood and bile capable of starting fires.</description>
+    <description>Cindrathi are Lepthera with a strong connection to fire, at home in the heat whose internals cause them to produce a blood and bile capable of starting fire. If this wasn't enough they're all pyromaniacs makng them a poor combination to to especially flamable colonies.</description>
     <descriptionShort>Fiery Lepthera</descriptionShort>
     <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
     <inheritable>true</inheritable>
@@ -125,6 +126,7 @@
     <genes>
       <li>Lepthera_Physiology</li>
       <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_CompoundEyes</li>
       <li>Lepthera_MothAbdomen</li>
       <li>Lepthera_FluffyBody</li>
       <li>Lepthera_Wings</li>

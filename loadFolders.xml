@@ -12,7 +12,9 @@
 	     original mod's gene with MayRequire. So a copy is referenced only when it is loaded.
 	     Mods/Atavism*: Atavism Libraries births-as-mother's-xenotype defs (Lunaveth / Mycoth
 	     ones also need the mod that defines that xenotype).
-	     Mods/IntimacyGenderWorks: Intimacy - Gender Works reproduction part on Lepthera_Body. -->
+	     Mods/IntimacyGenderWorks: Intimacy - Gender Works reproduction part on Lepthera_Body.
+	     Mods/FacialAnimationExperimentals: Motz eye/lid types (Experimentals texture set), gene-gated.
+	     Mods/EyeGenes3_1.6 / _1.7: EyeGenes3 eye colour pools (1.7 adds glowing pools). -->
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
@@ -27,6 +29,8 @@
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
 		<li IfModActive="LovelyDovey.Sex.WithRosaline">Mods/IntimacyGenderWorks</li>
+		<li IfModActive="Nals.FacialAnimationExperimentals">Mods/FacialAnimationExperimentals</li>
+		<li IfModActive="lucius.eyegenes3">Mods/EyeGenes3_1.6</li>
 	</v1.6>
 	<v1.7>
 		<li>/</li>
@@ -42,5 +46,7 @@
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, RedMattis.BigSmall.Core">Mods/Atavism_GenesAndMore</li>
 		<li IfModActiveAll="DanZinagri.AtavismLibraries, sarg.alphagenes">Mods/Atavism_AlphaGenes</li>
 		<li IfModActive="LovelyDovey.Sex.WithRosaline">Mods/IntimacyGenderWorks</li>
+		<li IfModActive="Nals.FacialAnimationExperimentals">Mods/FacialAnimationExperimentals</li>
+		<li IfModActive="lucius.eyegenes3">Mods/EyeGenes3_1.7</li>
 	</v1.7>
 </loadFolders>

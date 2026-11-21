@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Facial Animation eye and lid types from Verdeth's "Facial Animation Motz Patch" (made for Outland's
+	     Motz). This folder only loads with [NL] Facial Animation - Experimentals: the lids use its
+	     *_cover / normal_bottom texture set (base FA lids are close / half / normal).
+	     No raceName: a raceName replaces that race's whole eye/lid list. targetGeneDefs instead keeps
+	     these out of the random pool; FA only offers them to a pawn carrying a listed gene.
+	     Lepthera_CompoundEyes lives in Defs/Genes/Lepthera_Genes.xml (always loaded). -->
+
+	<!-- Eyes -->
+	<FacialAnimation.EyeballTypeDef>
+		<defName>Lepthera_EyeDull</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Eyes/Dull</texPath>
+		<shader>Map/CutoutSkinOverlay</shader>
+		<minColor>RGB(0.85,0.85,0.85)</minColor>
+		<maxColor>RGB(0.85,0.85,0.85)</maxColor>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.EyeballTypeDef>
+
+	<FacialAnimation.EyeballTypeDef>
+		<defName>Lepthera_EyeDull2</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Eyes/Dull2</texPath>
+		<shader>Map/CutoutSkinOverlay</shader>
+		<minColor>RGB(0.85,0.85,0.85)</minColor>
+		<maxColor>RGB(0.85,0.85,0.85)</maxColor>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.EyeballTypeDef>
+
+	<!-- Lids (Normal has male and female textures, the rest are female only) -->
+	<FacialAnimation.LidTypeDef>
+		<defName>Lepthera_LidNormal</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Lids/Normal</texPath>
+		<shader>Map/Transparent</shader>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.LidTypeDef>
+
+	<FacialAnimation.LidTypeDef>
+		<defName>Lepthera_LidPointy</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Lids/Pointy</texPath>
+		<shader>Map/Transparent</shader>
+		<gender>Female</gender>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.LidTypeDef>
+
+	<FacialAnimation.LidTypeDef>
+		<defName>Lepthera_LidFlashy</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Lids/Flashy</texPath>
+		<shader>Map/Transparent</shader>
+		<gender>Female</gender>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.LidTypeDef>
+
+	<FacialAnimation.LidTypeDef>
+		<defName>Lepthera_LidQuite</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Lids/Quite</texPath>
+		<shader>Map/Transparent</shader>
+		<gender>Female</gender>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.LidTypeDef>
+
+	<FacialAnimation.LidTypeDef>
+		<defName>Lepthera_LidSleepy</defName>
+		<texPath>Things/Pawn/Lepthera/FA/Lids/Sleepy</texPath>
+		<shader>Map/Transparent</shader>
+		<gender>Female</gender>
+		<targetGeneDefs>
+			<li>Lepthera_CompoundEyes</li>
+		</targetGeneDefs>
+	</FacialAnimation.LidTypeDef>
+
+</Defs>

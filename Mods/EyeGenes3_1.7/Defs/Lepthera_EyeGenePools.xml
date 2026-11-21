@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- EyeGenes3 (lucius.eyegenes3) eye colour pools. EyeGenes3 gives a generated (non-newborn) pawn of
+	     the xenotype one gene from its pool, replacing conflicting eye colour endogenes. Xenotypes are
+	     looked up by name and skipped when missing, so Mycoth/Lunaveth need no extra gate.
+	     glowingGenes are used instead of genes only when the player enables EyeGenes3's glowing eye genes
+	     and "use mod-provided glowing pools" (off by default). 1.6's EyeGenes3 has no glowing genes;
+	     see Mods/EyeGenes3_1.6. -->
+
+	<!-- regal gold and amber -->
+	<EyeGenes3.XenotypeEyeGenePoolDef>
+		<defName>EG3_Lepthera_Aurelith</defName>
+		<xenotypeDefName>Lepthera_Aurelith</xenotypeDefName>
+		<genes>
+			<li><gene>Eyes_Golden</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightYellow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkYellow</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightBrown</gene><weight>1</weight></li>
+			<li><gene>Eyes_Brown</gene><weight>1</weight></li>
+		</genes>
+		<glowingGenes>
+			<li><gene>Eyes_GoldenGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightYellowGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkYellowGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightBrownGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrownGlow</gene><weight>1</weight></li>
+		</glowingGenes>
+	</EyeGenes3.XenotypeEyeGenePoolDef>
+
+	<!-- midnight blues and predatory reds -->
+	<EyeGenes3.XenotypeEyeGenePoolDef>
+		<defName>EG3_Lepthera_Noctyra</defName>
+		<xenotypeDefName>Lepthera_Noctyra</xenotypeDefName>
+		<genes>
+			<li><gene>Eyes_DeepBlue</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkPurple</gene><weight>1</weight></li>
+			<li><gene>Eyes_Crimson</gene><weight>1</weight></li>
+			<li><gene>Eyes_DeepRed</gene><weight>1</weight></li>
+			<li><gene>Eyes_Silver</gene><weight>1</weight></li>
+		</genes>
+		<glowingGenes>
+			<li><gene>Eyes_DeepBlueGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkPurpleGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_CrimsonGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DeepRedGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_SilverGlow</gene><weight>1</weight></li>
+		</glowingGenes>
+	</EyeGenes3.XenotypeEyeGenePoolDef>
+
+	<!-- fire colours -->
+	<EyeGenes3.XenotypeEyeGenePoolDef>
+		<defName>EG3_Lepthera_Cindrathi</defName>
+		<xenotypeDefName>Lepthera_Cindrathi</xenotypeDefName>
+		<genes>
+			<li><gene>Eyes_Orange</gene><weight>1</weight></li>
+			<li><gene>Eyes_Crimson</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightYellow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DeepRed</gene><weight>1</weight></li>
+			<li><gene>Eyes_Golden</gene><weight>1</weight></li>
+		</genes>
+		<glowingGenes>
+			<li><gene>Eyes_OrangeGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_CrimsonGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightYellowGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DeepRedGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_GoldenGlow</gene><weight>1</weight></li>
+		</glowingGenes>
+	</EyeGenes3.XenotypeEyeGenePoolDef>
+
+	<!-- fungal greens and purples -->
+	<EyeGenes3.XenotypeEyeGenePoolDef>
+		<defName>EG3_Lepthera_Mycoth</defName>
+		<xenotypeDefName>Lepthera_Mycoth</xenotypeDefName>
+		<genes>
+			<li><gene>Eyes_LimeGreen</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightGreen</gene><weight>1</weight></li>
+			<li><gene>Eyes_Purple</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightPurple</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkGreen</gene><weight>1</weight></li>
+		</genes>
+		<glowingGenes>
+			<li><gene>Eyes_LimeGreenGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_BrightGreenGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_PurpleGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightPurpleGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_DarkGreenGlow</gene><weight>1</weight></li>
+		</glowingGenes>
+	</EyeGenes3.XenotypeEyeGenePoolDef>
+
+	<!-- moonlight silvers and blues -->
+	<EyeGenes3.XenotypeEyeGenePoolDef>
+		<defName>EG3_Lepthera_Lunaveth</defName>
+		<xenotypeDefName>Lepthera_Lunaveth</xenotypeDefName>
+		<genes>
+			<li><gene>Eyes_Silver</gene><weight>1</weight></li>
+			<li><gene>Eyes_White</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightBlue</gene><weight>1</weight></li>
+			<li><gene>Eyes_Cyan</gene><weight>1</weight></li>
+			<li><gene>Eyes_SkyBlue</gene><weight>1</weight></li>
+		</genes>
+		<glowingGenes>
+			<li><gene>Eyes_SilverGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_WhiteGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_LightBlueGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_CyanGlow</gene><weight>1</weight></li>
+			<li><gene>Eyes_SkyBlueGlow</gene><weight>1</weight></li>
+		</glowingGenes>
+	</EyeGenes3.XenotypeEyeGenePoolDef>
+
+</Defs>

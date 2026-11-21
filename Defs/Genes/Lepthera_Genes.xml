@@ -251,4 +251,25 @@
     </renderNodeProperties>
   </GeneDef>
 
+  <!-- Compound eyes: vanilla DarkVision's effect (ignoreDarkness) plus +10% sight, at DarkVision's
+       -1 metabolic. Requires the lepthera race swap. With FA Experimentals,
+       Mods/FacialAnimationExperimentals gives carriers the Motz eye/lid types (targetGeneDefs). -->
+  <GeneDef>
+    <defName>Lepthera_CompoundEyes</defName>
+    <label>Lepthera compound eyes</label>
+    <description>Carriers of this gene have large compound eyes made of thousands of tiny lenses. They see well in low light and are unaffected by mood penalties related to darkness, and they see slightly better than baseliners.</description>
+    <iconPath>UI/Icons/Genes/Gene_Darkvision</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <prerequisite>Lepthera_Physiology</prerequisite>
+    <ignoreDarkness>true</ignoreDarkness>
+    <capMods>
+      <li>
+        <capacity>Sight</capacity>
+        <offset>0.1</offset>
+      </li>
+    </capMods>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+  </GeneDef>
+
 </Defs>

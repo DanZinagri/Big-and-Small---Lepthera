@@ -5,7 +5,7 @@
   <XenotypeDef>
     <defName>Lepthera_Mycoth</defName>
     <label>mycoth</label>
-    <description>Mycoth are Lepthera whose entire xenotype long ago fused with that of a vampiric fungi. They feed on blood and corpses, finding themselves at home in the miasma. They cannot reproduce, instead spreading their body-altering fungi into the dead.</description>
+    <description>Mycoth are Lepthera whose entire xenotype long ago fused with that of a vampiric fungi. They feed on blood and corpses, finding themselves at home in the miasma. They cannot reproduce, instead spreading their body-altering fungi into the dead. Their general visage is offputting to others and their actions are often distrusted.</description>
     <descriptionShort>Lepthera with a strange fungal symbiosis</descriptionShort>
     <iconPath>UI/Icons/Xenotypes/BP_Lunarian</iconPath>
     <inheritable>true</inheritable>
@@ -14,6 +14,7 @@
       <!-- This mod / Oops all BUGPARTS 2 / Big and Small Framework (all required) -->
       <li>Lepthera_Physiology</li>
       <li>Lepthera_SensitiveAntennae</li>
+      <li>Lepthera_CompoundEyes</li>
       <li>Lepthera_MothAbdomen</li>
       <li>Lepthera_FluffyBody</li>
       <li>Lepthera_Wings_Fungal</li>
