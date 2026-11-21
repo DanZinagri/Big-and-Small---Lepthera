@@ -4,4 +4,8 @@
   <!-- Added to the Diet entry for FoodTypeFlags bit 8192 (Source/Lepthera/ClothDiet.cs). -->
   <Lepthera_FoodTypeFlags_Cloth>cloth and wool</Lepthera_FoodTypeFlags_Cloth>
 
+  <!-- Mod settings (Source/Lepthera/LeptheraMod.cs) -->
+  <Lepthera_Settings_UseOriginalEyes>Use original eyes</Lepthera_Settings_UseOriginalEyes>
+  <Lepthera_Settings_UseOriginalEyes_Desc>Facial Animation - Experimentals only. Compound eyes carriers keep the normal Facial Animation eyes and lids instead of the moth ones. The gene itself is unchanged. Requires a restart. Pawns that already have the moth eyes keep them until their genes change.</Lepthera_Settings_UseOriginalEyes_Desc>
+
 </LanguageData>
